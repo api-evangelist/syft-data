@@ -1,0 +1,158 @@
+openapi: 3.1.0
+info:
+  title: Syft Data Lookup & Export API
+  version: alpha
+  description: REST APIs for querying Syft Data programmatically. The Lookup API returns company and contact intelligence (site sessions and LinkedIn engagement) for accounts and people Syft has already observed on your site or LinkedIn ads. The Export API retrieves the results of a motion's execution for polling integrations. The Lookup API is in alpha and available to select customers. Both APIs authenticate with a Server Secret Key that starts with `sk_live_`.
+  termsOfService: https://www.syftdata.com/terms
+  contact:
+    name: Syft Data Support
+    email: support@syftdata.com
+    url: https://www.syftdata.com/support
+servers:
+- url: https://app.syftdata.com/api
+  description: Production
+security:
+- bearerAuth: []
+- secretKeyHeader: []
+tags:
+- name: Export
+paths:
+  /motion/{motionId}/export:
+    get:
+      operationId: exportMotionRuns
+      summary: Export the results of a motion's execution
+      description: Retrieve contacts and accounts processed by a motion, along with their evaluation outcomes and action summaries. Cursor-paginated; ideal for polling for motion results at a regular interval.
+      tags:
+      - Export
+      parameters:
+      - name: motionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        description: Opaque pagination cursor; pass the nextCursor from the previous response.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Max items per page (max 100).
+        schema:
+          type: integer
+          default: 50
+          maximum: 100
+      - name: since
+        in: query
+        description: Only return runs created/updated after this ISO8601 timestamp.
+        schema:
+          type: string
+          format: date-time
+      - name: until
+        in: query
+        description: Only return runs created/updated before this ISO8601 timestamp.
+        schema:
+          type: string
+          format: date-time
+      - name: status
+        in: query
+        description: Filter by status. Defaults to completed.
+        schema:
+          type: string
+          default: completed
+          enum:
+          - completed
+          - failed
+          - skipped
+          - in_progress
+      - name: order
+        in: query
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+      - name: fields
+        in: query
+        description: Comma-separated top-level fields to include (runId always included).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Page of motion runs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportResponse'
+        '401':
+          description: Invalid or missing secret key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+          - Invalid input
+          - Unauthorized
+          - Not found
+    MotionRun:
+      type: object
+      properties:
+        runId:
+          type: string
+        status:
+          type: string
+          enum:
+          - completed
+          - failed
+          - skipped
+          - in_progress
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        completedAt:
+          type: string
+          format: date-time
+        targetType:
+          type: string
+        triggerSource:
+          type: string
+          nullable: true
+          description: webhook, csv, mcp, etc.
+        account:
+          type: object
+          nullable: true
+        contacts:
+          type: array
+          items:
+            type: object
+    ExportResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MotionRun'
+        nextCursor:
+          type: string
+          nullable: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Server Secret Key (starts with sk_live_) passed as a Bearer token.
+    secretKeyHeader:
+      type: apiKey
+      in: header
+      name: x-syft-secret-key
+      description: Server Secret Key (starts with sk_live_) passed in the x-syft-secret-key header.
