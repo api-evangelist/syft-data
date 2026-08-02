@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/ (npm registry, org @syftdata) + https://github.com/syftdata/syft
+packages:
+  - name: "@syftdata/client"
+    registry: npm
+    url: https://www.npmjs.com/package/@syftdata/client
+    version: 0.1.38-alpha.3
+    license: Apache-2.0
+    language: JavaScript/TypeScript
+    official: true
+    description: Client library to log events; used with the syft schema-driven analytics framework.
+    repository: https://github.com/syftdata/syft
+  - name: "@syftdata/next"
+    registry: npm
+    url: https://www.npmjs.com/package/@syftdata/next
+    version: 0.1.38-alpha.36
+    license: Apache-2.0
+    language: TypeScript
+    official: true
+    description: Lightweight low-code alternative to Segment to instrument event analytics in Next.js.
+    repository: https://github.com/syftdata/syft
+  - name: "@syftdata/cli"
+    registry: npm
+    url: https://www.npmjs.com/package/@syftdata/cli
+    version: 0.1.38-alpha.3
+    license: Apache-2.0
+    language: TypeScript
+    official: true
+    kind: cli
+    description: CLI to get event instrumentation right.
+    repository: https://github.com/syftdata/syft

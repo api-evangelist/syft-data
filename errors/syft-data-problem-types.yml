@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/syft-data-openapi.yaml (derived from documented Lookup API error responses)
+format: custom-json
+envelope_field: error
+note: >-
+  Syft returns a flat JSON envelope { "error": "..." } with the HTTP status
+  carrying the semantics. Not RFC 9457 problem+json.
+problems:
+  - status: 400
+    error: Invalid input
+    operation: lookupEntities
+    meaning: Neither email nor domain was provided in the request body.
+    remediation: Include at least one of `email` or `domain`.
+  - status: 401
+    error: Unauthorized
+    operation: [lookupEntities, exportMotionRuns]
+    meaning: Invalid or missing Server Secret Key.
+    remediation: Send a valid sk_live_ key via Authorization Bearer or x-syft-secret-key.
+  - status: 404
+    error: Not found
+    operation: lookupEntities
+    meaning: Syft has not observed the requested company or contact.
+    remediation: >-
+      The Lookup API is not an enrichment API; it only returns entities Syft has
+      already seen on your site or LinkedIn ads.

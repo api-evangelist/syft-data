@@ -1,0 +1,59 @@
+generated: '2026-07-21'
+method: derived
+source: https://docs.syftdata.com/ (Lookup API, Export API, webhook schemas, MCP tool surface)
+api: Syft Data
+entities:
+  - name: Company
+    aka: Account
+    description: Firmographic record plus aggregated Syft visit metrics and purchase intent.
+    key_fields: [domain, name, industry, syft_purchase_intent]
+  - name: Contact
+    aka: [Lead, Visitor]
+    description: Person identity + enrichment plus per-contact activity summaries.
+    key_fields: [email, name, title]
+  - name: Session
+    description: A website visit with pages, signals, geo, and intent.
+  - name: LinkedInActivity
+    description: LinkedIn engagement session (impressions).
+  - name: Motion
+    description: Automation workflow (trigger, filters, actions).
+  - name: MotionRun
+    description: A single execution of a motion with evaluation outcome and action steps.
+    key_fields: [runId, status, triggerSource]
+  - name: ICP
+    description: Ideal Customer Profile (company-level targeting).
+  - name: Persona
+    description: Contact-level targeting (role, seniority, function).
+  - name: Signal
+    description: Behavioral signal to watch for (pricing visits, UTMs, LinkedIn engagement).
+  - name: TargetList
+    description: Target Account List (target, do-not-track, or competitor).
+relationships:
+  - from: Company
+    type: has_many
+    to: Contact
+    via: domain
+  - from: Contact
+    type: has_many
+    to: Session
+    via: site_activity
+  - from: Contact
+    type: has_many
+    to: LinkedInActivity
+    via: linkedin_activity
+  - from: Motion
+    type: has_many
+    to: MotionRun
+    via: motionId
+  - from: MotionRun
+    type: has_one
+    to: Company
+    via: account
+  - from: MotionRun
+    type: has_many
+    to: Contact
+    via: contacts
+  - from: Motion
+    type: references
+    to: [ICP, Persona, Signal, TargetList]
+    via: filters

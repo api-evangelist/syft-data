@@ -1,0 +1,61 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.syftdata.com/ai-agents/connect
+status: official
+name: Syft MCP Server
+description: >-
+  Official hosted MCP (Model Context Protocol) server that lets AI assistants
+  query Syft visitor data, enqueue leads into motions, and build GTM automations
+  from chat. Available on Pro plans.
+server:
+  url: https://app.syftdata.com/api/mcp
+  transport: http
+  hosted: true
+authentication:
+  - type: oauth
+    description: OAuth login popup for Claude and ChatGPT (no API key needed).
+  - type: api_key
+    description: Authorization Bearer <syft-api-key> header for Cursor, Windsurf, and JSON-config clients.
+clients_documented:
+  - Claude
+  - ChatGPT
+  - Claude Code
+  - Cursor
+  - Windsurf
+tools:
+  - name: query_entities
+    description: Natural-language search across accounts and contacts, with sorting/ranking.
+  - name: lookup_entities
+    description: Deterministic lookup of contacts by email or companies by domain with activity and intent.
+  - name: find_connections
+    description: Surface warm intros from the team's synced LinkedIn network.
+  - name: get_org_setup
+    description: View ICPs, personas, signals, motions, integrations, and filter fields.
+  - name: build_icp
+    description: Create or edit an Ideal Customer Profile conversationally.
+  - name: build_persona
+    description: Create or edit a Persona (role, seniority, function) conversationally.
+  - name: build_signal
+    description: Create or edit a behavioral signal to watch for.
+  - name: create_target_list
+    description: Build a Target Account List (target, do-not-track, or competitor).
+  - name: delete_entity
+    description: Delete an ICP, Persona, or Signal; refuses if still referenced.
+  - name: build_motion
+    description: Create or edit an automation workflow (trigger, filters, actions).
+  - name: enqueue_leads
+    description: Push a list of leads into an active motion for outreach.
+  - name: get_motion_runs
+    description: Review motion runs (pending, in-progress, completed, failed).
+  - name: manage_motion_run
+    description: Approve, reject, or modify a motion run awaiting approval.
+  - name: get_web_tag_snippet
+    description: Generate the Syft tracking-tag install snippet for a platform.
+  - name: verify_tag_installation
+    description: Confirm the Syft tag is installed and firing.
+  - name: send_tag_setup_email
+    description: Email platform-specific install instructions to a teammate.
+  - name: invite_user_to_workspace
+    description: Send an email invitation to join a Syft workspace.
+  - name: get_billing_info
+    description: Check credit usage, plan details, and billing history.

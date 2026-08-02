@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/package/@syftdata/cli and https://github.com/syftdata/syft
+name: Syft CLI
+package: "@syftdata/cli"
+binary: syft
+install:
+  - method: npx
+    command: npx @syftdata/cli --help
+  - method: npm
+    command: npm install --save-dev @syftdata/cli
+license: Apache-2.0
+description: >-
+  CLI to get event instrumentation right — model analytics events from a schema
+  and keep instrumentation consistent across the codebase. Part of the syft
+  schema-driven analytics framework (github.com/syftdata/syft).
+related_github_actions:
+  - syft-cloud-action
+  - monitor-action

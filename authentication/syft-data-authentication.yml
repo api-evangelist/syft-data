@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.syftdata.com/implementation/lookup-api and https://docs.syftdata.com/ai-agents/connect
+api: Syft Data Lookup & Export API
+summary: >-
+  Server-side REST APIs authenticate with a Server Secret Key (sk_live_ prefix)
+  as a Bearer token or x-syft-secret-key header. The client-side tracking SDK
+  uses a public sourceId. The MCP server supports OAuth (Auth0) or API-key bearer.
+schemes:
+  - type: http
+    scheme: bearer
+    name: Server Secret Key (Bearer)
+    location: Authorization header
+    format: "Authorization: Bearer sk_live_..."
+    used_by: [Lookup API, Export API, MCP server]
+    key_prefix: sk_live_
+    obtain: https://app.syftdata.com/dashboard/settings/snippets
+  - type: apiKey
+    in: header
+    name: x-syft-secret-key
+    format: "x-syft-secret-key: sk_live_..."
+    used_by: [Lookup API, Export API]
+  - type: apiKey
+    in: body
+    name: secretKey
+    used_by: [Lookup API]
+  - type: apiKey
+    name: sourceId
+    location: client SDK init / data attribute
+    used_by: [JavaScript tracking SDK]
+    note: Public source identifier used by the browser tracking pixel; not a secret.
+  - type: oauth2
+    name: MCP OAuth (Auth0)
+    issuer: https://syft-studio.us.auth0.com/
+    used_by: [MCP server (Claude, ChatGPT, Claude Code)]
+    scopes_supported: [openid, profile, email, offline_access]

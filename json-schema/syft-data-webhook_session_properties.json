@@ -1,0 +1,262 @@
+[
+  {
+    "name": "active_time",
+    "label": "Active Time",
+    "description": "Duration of active time spent during the session",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "signals",
+    "label": "Matched Signals",
+    "description": "List of signals/intents matched during the session",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "pages_visited",
+    "label": "Pages Visited",
+    "description": "List of unique pages visited during the session",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "referrer",
+    "label": "Referrer",
+    "description": "The referrer source for this session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "utm_source",
+    "label": "UTM Source",
+    "description": "UTM source parameter tracking the traffic source",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "utm_medium",
+    "label": "UTM Medium",
+    "description": "UTM medium parameter tracking the marketing medium",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "utm_campaign",
+    "label": "UTM Campaign",
+    "description": "UTM campaign parameter tracking the marketing campaign",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "utm_channel",
+    "label": "UTM Channel",
+    "description": "Derived traffic channel (e.g., Direct, Paid Search, Organic Social)",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "address",
+    "label": "Address",
+    "description": "The address of the geographic location information of the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "city",
+    "label": "City",
+    "description": "The city of the geographic location information of the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "city_metro_area",
+    "label": "City Metropolitan Area",
+    "description": "The city metropolitan area of the geographic location information of the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "state",
+    "label": "State",
+    "description": "The state of the geographic location information of the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "country",
+    "label": "Country",
+    "description": "The country of the geographic location information of the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "zip",
+    "label": "Zip",
+    "description": "The zip code of the geographic location information of the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "geo_location",
+    "label": "Geo Location",
+    "description": "Old formatting for Geographic location information for the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_purchase_intent",
+    "label": "Purchase Intent",
+    "description": "Purchase intent determined for this session",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "enrichment_confidence",
+    "label": "Enrichment Confidence",
+    "description": "Confidence score for the enriched session data",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "activeTime",
+    "label": "[Deprecated] Legacy field for Active Time",
+    "description": "Duration of active time spent during the session",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "pagesVisited",
+    "label": "[Deprecated] Legacy field for Pages Visited",
+    "description": "List of unique pages visited during the session",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "location",
+    "label": "[Deprecated] Legacy field for Location",
+    "description": "Legacy Geographic location information for the session",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "intent",
+    "label": "[Deprecated] Legacy field for Purchase Intent",
+    "description": "Purchase intent determined for this LinkedIn interaction",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "enrichmentConfidence",
+    "label": "[Deprecated] Legacy field for Enrichment Confidence",
+    "description": "Confidence score for the enriched session data",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "start_time",
+    "label": "Start Time",
+    "description": "Start time of the session",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "end_time",
+    "label": "End Time",
+    "description": "End time of the session",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  }
+]

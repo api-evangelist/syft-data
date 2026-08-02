@@ -1,0 +1,22 @@
+# generated: '2026-07-21'
+# method: generated
+# source: overlays openapi/syft-data-openapi.yaml with API Evangelist enrichment metadata
+overlay: 1.0.0
+info:
+  title: API Evangelist enrichment overlay for Syft Data Lookup & Export API
+  version: 1.0.0
+extends: ../openapi/syft-data-openapi.yaml
+actions:
+  - target: $.info
+    update:
+      x-apisio-enriched: true
+      x-apisio-provider: syft-data
+      x-apisio-auth: Server Secret Key (sk_live_) via Authorization Bearer or x-syft-secret-key
+  - target: $.paths['/syft/lookup'].post
+    update:
+      x-apisio-notes: >-
+        Returns only entities Syft has already observed; not an enrichment API.
+        404 when the company or contact is unknown.
+  - target: $.paths['/motion/{motionId}/export'].get
+    update:
+      x-apisio-pagination: cursor (cursor/limit up to 100/nextCursor)

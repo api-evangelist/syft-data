@@ -1,8 +1,29 @@
 aid: syft-data
 name: Syft Data
-description: Syft Data is a company surfaced as a portfolio company of bloomberg-beta and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Syft Data, Inc. is a B2B lead-intelligence platform that identifies and
+  qualifies high-intent prospects from inbound website traffic and LinkedIn
+  engagement. Its tracking pixel reveals anonymous visitors, enriches contacts,
+  scores them against an Ideal Customer Profile, and triggers multi-channel
+  outreach ("motions") into CRM, email, LinkedIn, and ad platforms. For
+  developers Syft ships a schema-driven analytics SDK and CLI (npm @syftdata/*),
+  a server-side Lookup and Export REST API secured with sk_live_ keys, outbound
+  webhooks, and an official hosted MCP server so AI agents can query visitor data
+  and build automations from chat.
 url: https://raw.githubusercontent.com/api-evangelist/syft-data/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.syftdata.com/
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,10 +32,85 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Lead Intelligence
+- Intent Data
+- Website Visitor Identification
+- Sales Intelligence
+- Go-To-Market
+- Analytics
+- MCP
+apis:
+- aid: syft-data:syft-data-export-api
+  name: Syft Data Export API
+  description: The Export API from Syft Data — 1 operation(s) for export.
+  humanURL: https://docs.syftdata.com/implementation/lookup-api
+  baseURL: https://app.syftdata.com/api
+  tags:
+  - Export
+  properties:
+  - type: OpenAPI
+    url: openapi/syft-data-export-api-openapi.yml
+  - type: Authentication
+    url: authentication/syft-data-authentication.yml
+  - type: OAuthScopes
+    url: scopes/syft-data-scopes.yml
+  - type: ErrorCatalog
+    url: errors/syft-data-problem-types.yml
+  - type: Conventions
+    url: conventions/syft-data-conventions.yml
+  - type: Conformance
+    url: conformance/syft-data-conformance.yml
+  - type: DataModel
+    url: data-model/syft-data-data-model.yml
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_company_properties.json
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_contact_properties.json
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_session_properties.json
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_linkedin_properties.json
+  - type: Documentation
+    url: https://docs.syftdata.com/implementation/lookup-api
+  - type: APIReference
+    url: https://docs.syftdata.com/implementation/export-api
+- aid: syft-data:syft-data-lookup-api
+  name: Syft Data Lookup API
+  description: The Lookup API from Syft Data — 1 operation(s) for lookup.
+  humanURL: https://docs.syftdata.com/implementation/lookup-api
+  baseURL: https://app.syftdata.com/api
+  tags:
+  - Lookup
+  properties:
+  - type: OpenAPI
+    url: openapi/syft-data-lookup-api-openapi.yml
+  - type: Authentication
+    url: authentication/syft-data-authentication.yml
+  - type: OAuthScopes
+    url: scopes/syft-data-scopes.yml
+  - type: ErrorCatalog
+    url: errors/syft-data-problem-types.yml
+  - type: Conventions
+    url: conventions/syft-data-conventions.yml
+  - type: Conformance
+    url: conformance/syft-data-conformance.yml
+  - type: DataModel
+    url: data-model/syft-data-data-model.yml
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_company_properties.json
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_contact_properties.json
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_session_properties.json
+  - type: JSONSchema
+    url: json-schema/syft-data-webhook_linkedin_properties.json
+  - type: Documentation
+    url: https://docs.syftdata.com/implementation/lookup-api
+  - type: APIReference
+    url: https://docs.syftdata.com/implementation/export-api
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +119,52 @@ maintainers:
 common:
 - type: Website
   url: https://www.syftdata.com/
+- type: DeveloperPortal
+  url: https://app.syftdata.com/
+- type: Documentation
+  url: https://docs.syftdata.com/
+- type: APIReference
+  url: https://docs.syftdata.com/implementation/lookup-api
+- type: GettingStarted
+  url: https://docs.syftdata.com/tutorial-basics/installation
+- type: Support
+  url: https://www.syftdata.com/support
+- type: Blog
+  url: https://blog.syftdata.com/
+- type: GitHubOrganization
+  url: https://github.com/syftdata
+- type: Pricing
+  url: https://www.syftdata.com/pricing
+- type: SignUp
+  url: https://app.syftdata.com/auth/syft-signup
+- type: Login
+  url: https://app.syftdata.com/
+- type: TermsOfService
+  url: https://www.syftdata.com/terms
+- type: PrivacyPolicy
+  url: https://www.syftdata.com/privacy.html
+- type: SDKs
+  url: packages/syft-data-packages.yml
+- type: Packages
+  url: packages/syft-data-packages.yml
+- type: CLI
+  url: cli/syft-data-cli.yml
+- type: MCPServer
+  url: mcp/syft-data-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: WellKnown
+  url: well-known/syft-data-well-known.yml
+- type: Webhooks
+  url: asyncapi/syft-data-webhooks.yml
+- type: Lifecycle
+  url: lifecycle/syft-data-lifecycle.yml
+- type: DomainSecurity
+  url: security/syft-data-domain-security.yml
+- type: LLMsTxt
+  url: llms/syft-data-llms.txt
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1

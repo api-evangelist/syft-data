@@ -1,0 +1,16 @@
+{
+  "provider": "syft-data",
+  "sources": [
+    "syft-data-export-api-openapi.yml",
+    "syft-data-lookup-api-openapi.yml"
+  ],
+  "outputs": [
+    "syft-data-export-api-openapi.yml",
+    "syft-data-lookup-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

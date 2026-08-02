@@ -1,0 +1,995 @@
+[
+  {
+    "name": "name",
+    "label": "Company Name",
+    "description": "The name of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "domain",
+    "label": "Company Domain",
+    "description": "The primary domain of the company website",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "website",
+    "label": "Company Website",
+    "description": "The full URL of the company website",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "description",
+    "label": "Company Description",
+    "description": "A brief description of the company and what they do",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "address",
+    "label": "Street Address",
+    "description": "The street address of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "city",
+    "label": "City",
+    "description": "The city where the company is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "city_metro_area",
+    "label": "Metropolitan Area",
+    "description": "The metropolitan area where the company is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "state",
+    "label": "State/Province",
+    "description": "The state or province where the company is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "country",
+    "label": "Country",
+    "description": "The country where the company is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "zip",
+    "label": "Postal/ZIP Code",
+    "description": "The postal or ZIP code of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "full_address",
+    "label": "Full Address",
+    "description": "The full address of the company. Combines address, city, state, country, zip",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "phone",
+    "label": "Phone Number",
+    "description": "The main phone number of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "industry",
+    "label": "Industry",
+    "description": "The industry the company operates in",
+    "type": "enumeration",
+    "options": [
+      {
+        "label": "Aerospace & Defense",
+        "value": "AEROSPACE_DEFENSE"
+      },
+      {
+        "label": "Air Freight & Logistics",
+        "value": "AIR_FREIGHT_LOGISTICS"
+      },
+      {
+        "label": "Airlines",
+        "value": "AIRLINES"
+      },
+      {
+        "label": "Automotive",
+        "value": "AUTOMOTIVE"
+      },
+      {
+        "label": "Banks",
+        "value": "BANKS"
+      },
+      {
+        "label": "Beverages",
+        "value": "BEVERAGES"
+      },
+      {
+        "label": "Biotechnology",
+        "value": "BIOTECHNOLOGY"
+      },
+      {
+        "label": "Building Materials",
+        "value": "BUILDING_MATERIALS"
+      },
+      {
+        "label": "Capital Goods",
+        "value": "CAPITAL_GOODS"
+      },
+      {
+        "label": "Capital Markets",
+        "value": "CAPITAL_MARKETS"
+      },
+      {
+        "label": "Chemicals",
+        "value": "CHEMICALS"
+      },
+      {
+        "label": "Commercial Services & Supplies",
+        "value": "COMMERCIAL_SERVICES_SUPPLIES"
+      },
+      {
+        "label": "Communications Equipment",
+        "value": "COMMUNICATIONS_EQUIPMENT"
+      },
+      {
+        "label": "Construction & Engineering",
+        "value": "CONSTRUCTION_ENGINEERING"
+      },
+      {
+        "label": "Consumer Discretionary",
+        "value": "CONSUMER_DISCRETIONARY"
+      },
+      {
+        "label": "Consumer Goods",
+        "value": "CONSUMER_GOODS"
+      },
+      {
+        "label": "Consumer Services",
+        "value": "CONSUMER_SERVICES"
+      },
+      {
+        "label": "Consumer Staples",
+        "value": "CONSUMER_STAPLES"
+      },
+      {
+        "label": "Containers & Packaging",
+        "value": "CONTAINERS_PACKAGING"
+      },
+      {
+        "label": "Distributors",
+        "value": "DISTRIBUTORS"
+      },
+      {
+        "label": "Diversified Consumer Services",
+        "value": "DIVERSIFIED_CONSUMER_SERVICES"
+      },
+      {
+        "label": "Diversified Financial Services",
+        "value": "DIVERSIFIED_FINANCIAL_SERVICES"
+      },
+      {
+        "label": "Diversified Telecommunication Services",
+        "value": "DIVERSIFIED_TELECOMMUNICATION_SERVICES"
+      },
+      {
+        "label": "Education Services",
+        "value": "EDUCATION_SERVICES"
+      },
+      {
+        "label": "Electric Utilities",
+        "value": "ELECTRIC_UTILITIES"
+      },
+      {
+        "label": "Electrical Equipment",
+        "value": "ELECTRICAL_EQUIPMENT"
+      },
+      {
+        "label": "Electronic Equipment, Instruments & Components",
+        "value": "ELECTRONIC_EQUIPMENT_INSTRUMENTS_COMPONENTS"
+      },
+      {
+        "label": "Family Services",
+        "value": "FAMILY_SERVICES"
+      },
+      {
+        "label": "Food & Staples Retailing",
+        "value": "FOOD_STAPLES_RETAILING"
+      },
+      {
+        "label": "Food Products",
+        "value": "FOOD_PRODUCTS"
+      },
+      {
+        "label": "Gas Utilities",
+        "value": "GAS_UTILITIES"
+      },
+      {
+        "label": "Health Care Equipment & Supplies",
+        "value": "HEALTH_CARE_EQUIPMENT_SUPPLIES"
+      },
+      {
+        "label": "Health Care Providers & Services",
+        "value": "HEALTH_CARE_PROVIDERS_SERVICES"
+      },
+      {
+        "label": "Hotels, Restaurants & Leisure",
+        "value": "HOTELS_RESTAURANTS_LEISURE"
+      },
+      {
+        "label": "Household Durables",
+        "value": "HOUSEHOLD_DURABLES"
+      },
+      {
+        "label": "IT Services",
+        "value": "IT_SERVICES"
+      },
+      {
+        "label": "Industrial Conglomerates",
+        "value": "INDUSTRIAL_CONGLOMERATES"
+      },
+      {
+        "label": "Industrials",
+        "value": "INDUSTRIALS"
+      },
+      {
+        "label": "Insurance",
+        "value": "INSURANCE"
+      },
+      {
+        "label": "Internet Software & Services",
+        "value": "INTERNET_SOFTWARE_SERVICES"
+      },
+      {
+        "label": "Leisure Products",
+        "value": "LEISURE_PRODUCTS"
+      },
+      {
+        "label": "Life Sciences Tools & Services",
+        "value": "LIFE_SCIENCES_TOOLS_SERVICES"
+      },
+      {
+        "label": "Machinery",
+        "value": "MACHINERY"
+      },
+      {
+        "label": "Marine",
+        "value": "MARINE"
+      },
+      {
+        "label": "Media",
+        "value": "MEDIA"
+      },
+      {
+        "label": "Metals & Mining",
+        "value": "METALS_MINING"
+      },
+      {
+        "label": "Paper & Forest Products",
+        "value": "PAPER_FOREST_PRODUCTS"
+      },
+      {
+        "label": "Personal Products",
+        "value": "PERSONAL_PRODUCTS"
+      },
+      {
+        "label": "Pharmaceuticals",
+        "value": "PHARMACEUTICALS"
+      },
+      {
+        "label": "Professional Services",
+        "value": "PROFESSIONAL_SERVICES"
+      },
+      {
+        "label": "Real Estate",
+        "value": "REAL_ESTATE"
+      },
+      {
+        "label": "Renewable Electricity",
+        "value": "RENEWABLE_ELECTRICITY"
+      },
+      {
+        "label": "Retailing",
+        "value": "RETAILING"
+      },
+      {
+        "label": "Road & Rail",
+        "value": "ROAD_RAIL"
+      },
+      {
+        "label": "Semiconductors & Semiconductor Equipment",
+        "value": "SEMICONDUCTORS_SEMICONDUCTOR_EQUIPMENT"
+      },
+      {
+        "label": "Software",
+        "value": "SOFTWARE"
+      },
+      {
+        "label": "Specialized Consumer Services",
+        "value": "SPECIALIZED_CONSUMER_SERVICES"
+      },
+      {
+        "label": "Specialty Retail",
+        "value": "SPECIALTY_RETAIL"
+      },
+      {
+        "label": "Technology Hardware, Storage & Peripherals",
+        "value": "TECHNOLOGY_HARDWARE_STORAGE_PERIPHERALS"
+      },
+      {
+        "label": "Textiles, Apparel & Luxury Goods",
+        "value": "TEXTILES_APPAREL_LUXURY_GOODS"
+      },
+      {
+        "label": "Tobacco",
+        "value": "TOBACCO"
+      },
+      {
+        "label": "Trading Companies & Distributors",
+        "value": "TRADING_COMPANIES_DISTRIBUTORS"
+      },
+      {
+        "label": "Transportation",
+        "value": "TRANSPORTATION"
+      },
+      {
+        "label": "Utilities",
+        "value": "UTILITIES"
+      },
+      {
+        "label": "Wireless Telecommunication Services",
+        "value": "WIRELESS_TELECOMMUNICATION_SERVICES"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "employees",
+    "label": "Number of Employees",
+    "description": "The estimated number of employees at the company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "annualRevenue",
+    "label": "Annual Revenue",
+    "description": "The estimated annual revenue of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "foundedYear",
+    "label": "Founded Year",
+    "description": "The year the company was founded",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "lifecycleStage",
+    "label": "Lifecycle Stage",
+    "description": "The current lifecycle stage of the company",
+    "type": "enumeration",
+    "options": [
+      {
+        "label": "Prospect",
+        "value": "prospect"
+      },
+      {
+        "label": "Opportunity",
+        "value": "opportunity"
+      },
+      {
+        "label": "Lost Opportunity",
+        "value": "lost_opportunity"
+      },
+      {
+        "label": "Customer",
+        "value": "customer"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "twitter",
+    "label": "Twitter Handle",
+    "description": "The Twitter handle of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "twitterFollowers",
+    "label": "Twitter Followers",
+    "description": "The number of Twitter followers the company has",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "linkedin",
+    "label": "LinkedIn URL",
+    "description": "The LinkedIn company page URL",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_research_report",
+    "label": "Company Research Report",
+    "description": "Research report generated for this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_account_url",
+    "label": "Syft Account URL",
+    "description": "The URL of the company in Syft",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_icp",
+    "label": "Matched ICPs",
+    "description": "Syft ICPs that match this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_intents",
+    "label": "Matched Signals",
+    "description": "List of signals demonstrated by this company on the website",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_persona",
+    "label": "Matched Personas",
+    "description": "Syft Personas of the visitors from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_time_spent",
+    "label": "Time Spent",
+    "description": "Total time spent across all sessions (in minutes)",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_sessions",
+    "label": "Total Sessions",
+    "description": "Total number of sessions from this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_high_intent_sessions",
+    "label": "High Intent Sessions",
+    "description": "Total number of High Intent sessions from this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_page_views",
+    "label": "Page Views",
+    "description": "Total number of pages viewed across all sessions",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_visitors",
+    "label": "Unique Visitors",
+    "description": "Number of unique visitors from this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_visitor_id_count",
+    "label": "Unique Visitor ID Count",
+    "description": "Number of unique visitor IDs seen from this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_leads",
+    "label": "Identified Leads",
+    "description": "Number of leads identified by Syft for this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_first_seen",
+    "label": "First Seen",
+    "description": "First time when someone from this company visited the website",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_last_seen",
+    "label": "Last Seen",
+    "description": "Last time when someone from this company visited the website",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_purchase_intent",
+    "label": "Purchase Intent",
+    "description": "Purchase intent from this company",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_summary",
+    "label": "Activity Summary",
+    "description": "Activity summary and purchase intent from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_visited_pages",
+    "label": "Visited Pages",
+    "description": "List of pages visited by visitors from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_referrer",
+    "label": "First Session Referrer",
+    "description": "Referrer URL for the first session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_source",
+    "label": "First Session Source",
+    "description": "Traffic Source for the first session from this company",
+    "type": "enumeration",
+    "options": [
+      {
+        "label": "Direct",
+        "value": "DIRECT"
+      },
+      {
+        "label": "Cross Network",
+        "value": "CROSS_NETWORK"
+      },
+      {
+        "label": "Paid Search",
+        "value": "PAID_SEARCH"
+      },
+      {
+        "label": "Paid Social",
+        "value": "PAID_SOCIAL"
+      },
+      {
+        "label": "Paid Shopping",
+        "value": "PAID_SHOPPING"
+      },
+      {
+        "label": "Display",
+        "value": "DISPLAY"
+      },
+      {
+        "label": "Paid Other",
+        "value": "PAID_OTHER"
+      },
+      {
+        "label": "Organic Search",
+        "value": "ORGANIC_SEARCH"
+      },
+      {
+        "label": "Organic Social",
+        "value": "ORGANIC_SOCIAL"
+      },
+      {
+        "label": "Organic Shopping",
+        "value": "ORGANIC_SHOPPING"
+      },
+      {
+        "label": "Referral",
+        "value": "REFERRAL"
+      },
+      {
+        "label": "Email",
+        "value": "EMAIL"
+      },
+      {
+        "label": "Affiliates",
+        "value": "AFFILIATES"
+      },
+      {
+        "label": "Audio",
+        "value": "AUDIO"
+      },
+      {
+        "label": "SMS",
+        "value": "SMS"
+      },
+      {
+        "label": "Mobile Push Notifications",
+        "value": "MOBILE_PUSH_NOTIFICATIONS"
+      },
+      {
+        "label": "Unknown",
+        "value": "UNKNOWN"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_channel",
+    "label": "First UTM Channel",
+    "description": "UTM Channel for the first session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_medium",
+    "label": "First UTM Medium",
+    "description": "UTM Medium for the first session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_campaign",
+    "label": "First UTM Campaign",
+    "description": "UTM Campaign for the first session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_source",
+    "label": "First UTM Source",
+    "description": "UTM Source for the first session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_referrer",
+    "label": "Latest Session Referrer",
+    "description": "Referrer URL for the latest session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_source",
+    "label": "Latest Session Source",
+    "description": "Traffic source for the latest session from this company",
+    "type": "enumeration",
+    "options": [
+      {
+        "label": "Direct",
+        "value": "DIRECT"
+      },
+      {
+        "label": "Cross Network",
+        "value": "CROSS_NETWORK"
+      },
+      {
+        "label": "Paid Search",
+        "value": "PAID_SEARCH"
+      },
+      {
+        "label": "Paid Social",
+        "value": "PAID_SOCIAL"
+      },
+      {
+        "label": "Paid Shopping",
+        "value": "PAID_SHOPPING"
+      },
+      {
+        "label": "Display",
+        "value": "DISPLAY"
+      },
+      {
+        "label": "Paid Other",
+        "value": "PAID_OTHER"
+      },
+      {
+        "label": "Organic Search",
+        "value": "ORGANIC_SEARCH"
+      },
+      {
+        "label": "Organic Social",
+        "value": "ORGANIC_SOCIAL"
+      },
+      {
+        "label": "Organic Shopping",
+        "value": "ORGANIC_SHOPPING"
+      },
+      {
+        "label": "Referral",
+        "value": "REFERRAL"
+      },
+      {
+        "label": "Email",
+        "value": "EMAIL"
+      },
+      {
+        "label": "Affiliates",
+        "value": "AFFILIATES"
+      },
+      {
+        "label": "Audio",
+        "value": "AUDIO"
+      },
+      {
+        "label": "SMS",
+        "value": "SMS"
+      },
+      {
+        "label": "Mobile Push Notifications",
+        "value": "MOBILE_PUSH_NOTIFICATIONS"
+      },
+      {
+        "label": "Unknown",
+        "value": "UNKNOWN"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_channel",
+    "label": "Latest UTM Channel",
+    "description": "UTM Channel for the latest session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_medium",
+    "label": "Latest UTM Medium",
+    "description": "UTM Medium for the latest session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_campaign",
+    "label": "Latest UTM Campaign",
+    "description": "UTM Campaign for the latest session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_source",
+    "label": "Latest UTM Source",
+    "description": "UTM Source for the latest session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_utm_campaigns",
+    "label": "All UTM Campaigns",
+    "description": "All UTM Campaigns influencing this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_creation_trigger",
+    "label": "Creation Trigger",
+    "description": "Motion Name or 'Manual' if not created via Motion",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_impressions_total",
+    "label": "Number of LinkedIn Impressions",
+    "description": "Total number of LinkedIn impressions for this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_clicks_total",
+    "label": "Number of LinkedIn Clicks",
+    "description": "Total number of LinkedIn clicks for this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_likes_total",
+    "label": "Number of LinkedIn Likes",
+    "description": "Total number of LinkedIn likes for this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_shares_total",
+    "label": "Number of LinkedIn Shares",
+    "description": "Total number of LinkedIn shares for this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_comments_total",
+    "label": "Number of LinkedIn Comments",
+    "description": "Total number of LinkedIn comments for this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_engagements_total",
+    "label": "Total LinkedIn Engagements",
+    "description": "Total number of LinkedIn engagements for this company",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_posts",
+    "label": "LinkedIn Posts",
+    "description": "LinkedIn posts viewed by this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_ad_clicks_l7",
+    "label": "Ad Clicks (Last 7 Days)",
+    "description": "Number of LinkedIn ad clicks in the last 7 days",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_ad_impressions_l7",
+    "label": "Ad Impressions (Last 7 Days)",
+    "description": "Number of LinkedIn ad impressions in the last 7 days",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_ad_clicks_l30",
+    "label": "Ad Clicks (Last 30 Days)",
+    "description": "Number of LinkedIn ad clicks in the last 30 days",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_ad_impressions_l30",
+    "label": "Ad Impressions (Last 30 Days)",
+    "description": "Number of LinkedIn ad impressions in the last 30 days",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_ad_clicks_l90",
+    "label": "Ad Clicks (Last 90 Days)",
+    "description": "Number of LinkedIn ad clicks in the last 90 days",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_ad_impressions_l90",
+    "label": "Ad Impressions (Last 90 Days)",
+    "description": "Number of LinkedIn ad impressions in the last 90 days",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "primary_location",
+    "label": "Address Object",
+    "description": "The address object of the company with address, city, state, country, zip",
+    "type": "object",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "hs_industry",
+    "label": "Industry",
+    "description": "The industry the company operates in",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "hs_is_public",
+    "label": "Is Public Company",
+    "description": "Whether the company is publicly traded",
+    "type": "boolean",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_icp_array",
+    "label": "Matched ICPs Array",
+    "description": "Syft ICPs that match this company",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_intents_array",
+    "label": "Matched Signals Array",
+    "description": "List of signals demonstrated by this company on the website",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_persona_array",
+    "label": "Matched Personas Array",
+    "description": "Syft Personas of the visitors from this company",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  }
+]

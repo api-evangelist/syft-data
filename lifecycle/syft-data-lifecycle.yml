@@ -1,0 +1,18 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.syftdata.com/implementation/lookup-api
+api: Syft Data Lookup & Export API
+versioning:
+  scheme: named-stage
+  current: alpha
+  note: >-
+    The Lookup API is in alpha and available to select customers; the interface
+    may change as Syft iterates on feedback. The Export API is generally documented.
+deprecation_policy:
+  documented: false
+sunset_headers: false
+status_page:
+  present: false
+  probed: https://status.syftdata.com/ (no response)
+sla:
+  documented: false

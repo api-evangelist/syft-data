@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.syftdata.com/implementation/lookup-api and https://docs.syftdata.com/implementation/export-api
+api: Syft Data Lookup & Export API
+auth_style:
+  scheme: bearer
+  key_prefix: sk_live_
+  alt_header: x-syft-secret-key
+  see: authentication/syft-data-authentication.yml
+idempotency:
+  supported: false
+  note: No idempotency key documented; Lookup is a read POST and Export is a GET.
+pagination:
+  style: cursor
+  request_params:
+    cursor: Opaque token from the previous response's nextCursor.
+    limit: Max items per page, default 50, max 100.
+  response_fields:
+    items: Array of results.
+    nextCursor: Opaque cursor for the next page (null when exhausted).
+  ordering: Runs ordered by execution timestamp; order=asc|desc.
+field_selection:
+  param: fields
+  style: Comma-separated top-level field allow-list (runId always included).
+  applies_to: exportMotionRuns
+filtering:
+  export: since, until (ISO8601), status (completed|failed|skipped|in_progress).
+error_envelope:
+  shape: '{ "error": "<message>" }'
+  format: custom-json
+  see: errors/syft-data-problem-types.yml
+versioning:
+  scheme: Lookup API labeled "alpha"; interface may change.
+  see: lifecycle/syft-data-lifecycle.yml
+rate_limits:
+  documented: false
+  soft_limits:
+    - Up to 10 contacts returned per company lookup.
+    - Up to 10 sessions returned per contact when includeActivity is enabled.
+    - Credits-based usage plan (500 Starter / 5,000 Pro per month).

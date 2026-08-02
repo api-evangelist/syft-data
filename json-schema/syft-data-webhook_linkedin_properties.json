@@ -1,0 +1,109 @@
+[
+  {
+    "name": "action",
+    "label": "LinkedIn Action",
+    "description": "Type of action performed on LinkedIn",
+    "type": "string",
+    "options": [
+      {
+        "label": "Like",
+        "value": "like"
+      },
+      {
+        "label": "Comment",
+        "value": "comment"
+      },
+      {
+        "label": "Sent Message",
+        "value": "sent_message"
+      },
+      {
+        "label": "Received Message",
+        "value": "received_message"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "post_id",
+    "label": "LinkedIn Post ID",
+    "description": "Identifier of the LinkedIn post",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "post_url",
+    "label": "LinkedIn Post URL",
+    "description": "URL of the LinkedIn post",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_purchase_intent",
+    "label": "Purchase Intent",
+    "description": "Purchase intent determined for this LinkedIn interaction",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "postId",
+    "label": "[Deprecated] Legacy field for LinkedIn Post ID",
+    "description": "Identifier of the LinkedIn post",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "intent",
+    "label": "[Deprecated] Legacy field for Purchase Intent",
+    "description": "Purchase intent determined for this LinkedIn interaction",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "timestamp",
+    "label": "Timestamp",
+    "description": "Timestamp of the LinkedIn interaction",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  }
+]

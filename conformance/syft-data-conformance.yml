@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/syft-data-openapi.yaml + https://app.syftdata.com/.well-known/openid-configuration + docs
+api: Syft Data Lookup & Export API
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: MCP server authenticates via OAuth 2.0 through the Auth0 tenant syft-studio.us.auth0.com.
+  - id: oidc
+    conforms: true
+    evidence: /.well-known/openid-configuration published; scopes openid/profile/email/offline_access.
+  - id: rfc9457
+    conforms: false
+    evidence: 'Errors use a flat { "error": "..." } envelope, not application/problem+json.'
+  - id: pagination
+    conforms: true
+    evidence: Export API uses opaque cursor pagination (cursor/limit/nextCursor).
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key mechanism documented.
+  - id: json:api
+    conforms: false
+    evidence: Custom JSON envelopes; not JSON:API.

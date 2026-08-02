@@ -1,0 +1,11 @@
+generated: '2026-07-21'
+method: generated
+source: skills grounded in real Syft Data Lookup & Export API operations
+api: Syft Data Lookup & Export API
+skills:
+  - name: syft-data-lookup-visitor-intelligence
+    file: syft-data-lookup-visitor-intelligence.md
+    operations: [lookupEntities]
+  - name: syft-data-export-motion-results
+    file: syft-data-export-motion-results.md
+    operations: [exportMotionRuns]

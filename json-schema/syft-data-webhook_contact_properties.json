@@ -1,0 +1,765 @@
+[
+  {
+    "name": "email",
+    "label": "Email",
+    "description": "The email address of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "firstName",
+    "label": "First Name",
+    "description": "The first name of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "lastName",
+    "label": "Last Name",
+    "description": "The last name of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "fullName",
+    "label": "Full Name",
+    "description": "The full name of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "title",
+    "label": "Job Title",
+    "description": "The job title of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "company",
+    "label": "Company Name",
+    "description": "The name of the company the contact works for",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "gender",
+    "label": "Gender",
+    "description": "The gender of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "phone",
+    "label": "Phone Number",
+    "description": "The phone number of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "birthday",
+    "label": "Date of Birth",
+    "description": "The date of birth of the contact",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "address",
+    "label": "Street Address",
+    "description": "The street address of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "city",
+    "label": "City",
+    "description": "The city where the contact is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "city_metro_area",
+    "label": "Metropolitan Area",
+    "description": "The metropolitan area where the contact is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "state",
+    "label": "State/Province",
+    "description": "The state or province where the contact is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "country",
+    "label": "Country",
+    "description": "The country where the contact is located",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "zip",
+    "label": "Postal/ZIP Code",
+    "description": "The postal or ZIP code of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "full_address",
+    "label": "Full Address",
+    "description": "The full address of the contact. Combines address, city, state, country, zip",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_research_report",
+    "label": "Lead Research Report",
+    "description": "Research report generated for this lead",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "website",
+    "label": "Website",
+    "description": "The personal website of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "twitter",
+    "label": "Twitter Handle",
+    "description": "The Twitter handle of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "linkedin",
+    "label": "LinkedIn URL",
+    "description": "The LinkedIn profile URL of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_creation_source",
+    "label": "Creation Source",
+    "description": "How the contact was identified (Personalized Link, Form Submission, etc.)",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_enrichment_confidence",
+    "label": "ID Confidence",
+    "description": "Confidence level of the ID data (Very High, High, Medium, Low)",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_creation_trigger",
+    "label": "Creation Trigger",
+    "description": "Motion Name or 'Manual' if not created via Motion",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_persona",
+    "label": "Matched Personas",
+    "description": "Syft Personas that match this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_intents",
+    "label": "Matched Signals",
+    "description": "List of signals demonstrated by this contact on the website",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_time_spent",
+    "label": "Time Spent",
+    "description": "Total time spent across all sessions (in minutes)",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_high_intent_sessions",
+    "label": "High Intent Sessions",
+    "description": "Total number of High Intent sessions from this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_sessions",
+    "label": "Total Sessions",
+    "description": "Total number of sessions from this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_page_views",
+    "label": "Page Views",
+    "description": "Total number of pages viewed across all sessions",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_visitor_id_count",
+    "label": "Unique Visitor ID Count",
+    "description": "Number of unique visitor IDs seen by this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_first_seen",
+    "label": "First Seen",
+    "description": "First time when the contact visited the website",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_last_seen",
+    "label": "Last Seen",
+    "description": "Last time when the contact visited the website",
+    "type": "datetime",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_purchase_intent",
+    "label": "Purchase Intent",
+    "description": "Purchase intent from this contact",
+    "type": "string",
+    "options": [
+      {
+        "label": "Very High",
+        "value": "very_high"
+      },
+      {
+        "label": "High",
+        "value": "high"
+      },
+      {
+        "label": "Medium",
+        "value": "medium"
+      },
+      {
+        "label": "Low",
+        "value": "low"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_summary",
+    "label": "Activity Summary",
+    "description": "Activity summary and purchase intent from this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_visited_pages",
+    "label": "Visited Pages",
+    "description": "List of pages visited by this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_referrer",
+    "label": "First Session Referrer",
+    "description": "Referrer URL for the first session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_source",
+    "label": "First Session Source",
+    "description": "Traffic Source for the first session of this contact",
+    "type": "enumeration",
+    "options": [
+      {
+        "label": "Direct",
+        "value": "DIRECT"
+      },
+      {
+        "label": "Cross Network",
+        "value": "CROSS_NETWORK"
+      },
+      {
+        "label": "Paid Search",
+        "value": "PAID_SEARCH"
+      },
+      {
+        "label": "Paid Social",
+        "value": "PAID_SOCIAL"
+      },
+      {
+        "label": "Paid Shopping",
+        "value": "PAID_SHOPPING"
+      },
+      {
+        "label": "Display",
+        "value": "DISPLAY"
+      },
+      {
+        "label": "Paid Other",
+        "value": "PAID_OTHER"
+      },
+      {
+        "label": "Organic Search",
+        "value": "ORGANIC_SEARCH"
+      },
+      {
+        "label": "Organic Social",
+        "value": "ORGANIC_SOCIAL"
+      },
+      {
+        "label": "Organic Shopping",
+        "value": "ORGANIC_SHOPPING"
+      },
+      {
+        "label": "Referral",
+        "value": "REFERRAL"
+      },
+      {
+        "label": "Email",
+        "value": "EMAIL"
+      },
+      {
+        "label": "Affiliates",
+        "value": "AFFILIATES"
+      },
+      {
+        "label": "Audio",
+        "value": "AUDIO"
+      },
+      {
+        "label": "SMS",
+        "value": "SMS"
+      },
+      {
+        "label": "Mobile Push Notifications",
+        "value": "MOBILE_PUSH_NOTIFICATIONS"
+      },
+      {
+        "label": "Unknown",
+        "value": "UNKNOWN"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_channel",
+    "label": "First UTM Channel",
+    "description": "UTM Channel for the first session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_medium",
+    "label": "First UTM Medium",
+    "description": "UTM Medium for the first session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_campaign",
+    "label": "First UTM Campaign",
+    "description": "UTM Campaign for the first session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_original_utm_source",
+    "label": "First UTM Source",
+    "description": "UTM Source for the first session from this company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_referrer",
+    "label": "Latest Session Referrer",
+    "description": "Referrer URL for the latest session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_source",
+    "label": "Latest Session Source",
+    "description": "Traffic source for the latest session of this contact",
+    "type": "enumeration",
+    "options": [
+      {
+        "label": "Direct",
+        "value": "DIRECT"
+      },
+      {
+        "label": "Cross Network",
+        "value": "CROSS_NETWORK"
+      },
+      {
+        "label": "Paid Search",
+        "value": "PAID_SEARCH"
+      },
+      {
+        "label": "Paid Social",
+        "value": "PAID_SOCIAL"
+      },
+      {
+        "label": "Paid Shopping",
+        "value": "PAID_SHOPPING"
+      },
+      {
+        "label": "Display",
+        "value": "DISPLAY"
+      },
+      {
+        "label": "Paid Other",
+        "value": "PAID_OTHER"
+      },
+      {
+        "label": "Organic Search",
+        "value": "ORGANIC_SEARCH"
+      },
+      {
+        "label": "Organic Social",
+        "value": "ORGANIC_SOCIAL"
+      },
+      {
+        "label": "Organic Shopping",
+        "value": "ORGANIC_SHOPPING"
+      },
+      {
+        "label": "Referral",
+        "value": "REFERRAL"
+      },
+      {
+        "label": "Email",
+        "value": "EMAIL"
+      },
+      {
+        "label": "Affiliates",
+        "value": "AFFILIATES"
+      },
+      {
+        "label": "Audio",
+        "value": "AUDIO"
+      },
+      {
+        "label": "SMS",
+        "value": "SMS"
+      },
+      {
+        "label": "Mobile Push Notifications",
+        "value": "MOBILE_PUSH_NOTIFICATIONS"
+      },
+      {
+        "label": "Unknown",
+        "value": "UNKNOWN"
+      }
+    ],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_channel",
+    "label": "Latest UTM Channel",
+    "description": "UTM Channel for the latest session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_medium",
+    "label": "Latest UTM Medium",
+    "description": "UTM Medium for the latest session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_campaign",
+    "label": "Latest UTM Campaign",
+    "description": "UTM Campaign for the latest session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_latest_utm_source",
+    "label": "Latest UTM Source",
+    "description": "UTM Source for the latest session of this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_utm_campaigns",
+    "label": "All UTM Campaigns",
+    "description": "All UTM Campaigns influencing this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_impressions_total",
+    "label": "Number of LinkedIn Impressions",
+    "description": "Total number of LinkedIn impressions for this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_clicks_total",
+    "label": "Number of LinkedIn Clicks",
+    "description": "Total number of LinkedIn clicks for this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_likes_total",
+    "label": "Number of LinkedIn Likes",
+    "description": "Total number of LinkedIn likes for this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_shares_total",
+    "label": "Number of LinkedIn Shares",
+    "description": "Total number of LinkedIn shares for this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_comments_total",
+    "label": "Number of LinkedIn Comments",
+    "description": "Total number of LinkedIn comments for this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_engagements_total",
+    "label": "Total LinkedIn Engagements",
+    "description": "Total number of LinkedIn engagements for this contact",
+    "type": "number",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_linkedin_posts",
+    "label": "LinkedIn Posts",
+    "description": "LinkedIn posts viewed by this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "salesforce_company_id",
+    "label": "Salesforce Company ID",
+    "description": "The Salesforce ID of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "hubspot_company_id",
+    "label": "HubSpot Company ID",
+    "description": "The HubSpot ID of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "apollo_company_id",
+    "label": "Apollo Company ID",
+    "description": "The Apollo ID of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "outreach_company_id",
+    "label": "Outreach Company ID",
+    "description": "The Outreach ID of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "pipedrive_org_id",
+    "label": "Pipedrive Organization ID",
+    "description": "The Pipedrive ID of the organization",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "attio_company_id",
+    "label": "Attio Company ID",
+    "description": "The Attio ID of the company",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "salesforce_contact_id",
+    "label": "Salesforce Contact ID",
+    "description": "The Salesforce Contact ID of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "salesforce_lead_id",
+    "label": "Salesforce Lead ID",
+    "description": "The Salesforce Lead ID of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "hubspot_contact_id",
+    "label": "HubSpot Contact ID",
+    "description": "The HubSpot ID of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "apollo_contact_id",
+    "label": "Apollo Contact ID",
+    "description": "The Apollo ID of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "outreach_contact_id",
+    "label": "Outreach Contact ID",
+    "description": "The Outreach ID of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "pipedrive_person_id",
+    "label": "Pipedrive Person ID",
+    "description": "The Pipedrive ID of the person",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "attio_contact_id",
+    "label": "Attio Contact ID",
+    "description": "The Attio ID of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "emails",
+    "label": "All Email Addresses",
+    "description": "All email addresses associated with this contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "email_addresses",
+    "label": "Email Addresses (Attio Format)",
+    "description": "Email addresses in Attio format",
+    "type": "object",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "description",
+    "label": "Description",
+    "description": "A brief description of the contact",
+    "type": "string",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "attio_name",
+    "label": "Name Object",
+    "description": "The name object with firstName, lastName and fullName",
+    "type": "object",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "phone_numbers",
+    "label": "Phone Numbers (Attio Format)",
+    "description": "The phone numbers in Attio format",
+    "type": "object",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "primary_location",
+    "label": "Address Object",
+    "description": "The address object with address, city, state, country, zip",
+    "type": "object",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_persona_array",
+    "label": "Matched Personas Array",
+    "description": "Syft Personas that match this contact",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  },
+  {
+    "name": "syft_intents_array",
+    "label": "Matched Signals Array",
+    "description": "List of signals demonstrated by this contact on the website",
+    "type": "string[]",
+    "options": [],
+    "sync": "Available always"
+  }
+]

@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.syftdata.com/integrations/webhook
+type: Webhooks
+summary: >-
+  Syft pushes account and lead data to any webhook endpoint. The payload shape
+  depends on the motion type configured in the dashboard.
+delivery:
+  direction: outbound
+  configuration: Create a Leads or Sessions motion in the Syft dashboard settings.
+  endpoint: Any customer-provided HTTPS webhook URL.
+events:
+  - name: leads.push
+    motion_type: Leads
+    description: Pushes enriched lead data when a new lead is identified.
+    objects: [Company, Lead]
+    schema: json-schema/syft-data-webhook_company_properties.json, json-schema/syft-data-webhook_contact_properties.json
+  - name: sessions.push
+    motion_type: Sessions
+    description: Pushes session activity along with the visitor who performed it.
+    objects: [Company, Visitor, Session, LinkedIn]
+    schema: >-
+      json-schema/syft-data-webhook_company_properties.json,
+      json-schema/syft-data-webhook_contact_properties.json,
+      json-schema/syft-data-webhook_session_properties.json,
+      json-schema/syft-data-webhook_linkedin_properties.json
+objects:
+  - name: Company
+    schema_file: json-schema/syft-data-webhook_company_properties.json
+  - name: Contact (Lead / Visitor)
+    schema_file: json-schema/syft-data-webhook_contact_properties.json
+    note: Lead and Visitor share the same Contact schema; Visitor may be anonymous.
+  - name: Session
+    schema_file: json-schema/syft-data-webhook_session_properties.json
+  - name: LinkedIn
+    schema_file: json-schema/syft-data-webhook_linkedin_properties.json

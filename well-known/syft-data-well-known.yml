@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of Syft Data hosts
+entries:
+  - path: /.well-known/openid-configuration
+    host: app.syftdata.com
+    url: https://app.syftdata.com/.well-known/openid-configuration
+    status: 200
+    file: syft-data-openid-configuration.json
+    note: Auth0 tenant (syft-studio.us.auth0.com) backing app + MCP OAuth login.
+  - path: /.well-known/security.txt
+    host: www.syftdata.com
+    status: 404
+  - path: /.well-known/security.txt
+    host: docs.syftdata.com
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: www.syftdata.com
+    status: 404
+  - path: /.well-known/api-catalog
+    host: www.syftdata.com
+    status: 404
