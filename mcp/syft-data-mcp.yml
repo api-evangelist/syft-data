@@ -1,7 +1,8 @@
 generated: '2026-07-21'
 method: searched
 source: https://docs.syftdata.com/ai-agents/connect
-status: official
+status: published
+status_raw: official
 name: Syft MCP Server
 description: >-
   Official hosted MCP (Model Context Protocol) server that lets AI assistants
