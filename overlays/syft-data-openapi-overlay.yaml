@@ -1,17 +1,24 @@
-# generated: '2026-07-21'
+# generated: '2026-08-13'
 # method: generated
-# source: overlays openapi/syft-data-openapi.yaml with API Evangelist enrichment metadata
+# source: >-
+#   overlays openapi/_original/syft-data-openapi.yaml with API Evangelist
+#   enrichment metadata. Path corrected 2026-08-13 — the combined spec this
+#   overlay extends was archived to openapi/_original/ when refine-openapis split
+#   it into one document per tag, leaving the previous `extends` target dangling.
 overlay: 1.0.0
 info:
   title: API Evangelist enrichment overlay for Syft Data Lookup & Export API
-  version: 1.0.0
-extends: ../openapi/syft-data-openapi.yaml
+  version: 1.0.1
+extends: ../openapi/_original/syft-data-openapi.yaml
 actions:
   - target: $.info
     update:
       x-apisio-enriched: true
       x-apisio-provider: syft-data
       x-apisio-auth: Server Secret Key (sk_live_) via Authorization Bearer or x-syft-secret-key
+      x-apisio-superseded-by: >-
+        openapi/syft-data-lookup-api-openapi.yml and
+        openapi/syft-data-export-api-openapi.yml
   - target: $.paths['/syft/lookup'].post
     update:
       x-apisio-notes: >-

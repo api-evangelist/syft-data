@@ -1,0 +1,133 @@
+# generated: '2026-08-13'
+# method: generated
+# source: >-
+#   https://docs.syftdata.com/implementation/devguide (custom-event curl example +
+#   installation-verification section) plus live probes of https://e2.sy-d.io on
+#   2026-08-13. Faithful to what Syft publishes and to what the host actually
+#   answers; nothing invented.
+# ownership: >-
+#   sy-d.io is Syft Data's own event-collection and CDN domain. Syft's own
+#   developer guide instructs customers to allowlist https://cdn.sy-d.io
+#   (script-src) and https://*.sy-d.io (connect-src) in their Content Security
+#   Policy and to verify installation by watching for calls to
+#   https://e2.sy-d.io/events, so the different registrable domain is documented
+#   by the provider itself.
+openapi: 3.1.0
+info:
+  title: Syft Data Event Collection API
+  version: unversioned
+  description: >-
+    The ingest endpoint the Syft browser tracking tag and SDK post behavioural
+    events to. Syft documents it twice: as the endpoint to watch in the browser
+    network tab when verifying an installation (`https://e2.sy-d.io/events`), and
+    as a server-side way to publish a custom event with curl. It has no reference
+    page, no published payload schema and no version. Documented here because it
+    is a real, live, first-party HTTP surface that appears in Syft's own install
+    and CSP instructions.
+
+
+    DOCS DISCREPANCY (probed 2026-08-13): the developer guide's curl example posts
+    to `https://e2.sy-d.io/log`, which returns `404 Cannot POST /log`. The route
+    that responds is `POST /events`, which returns `400 {"message":"Invalid
+    payload"}` for an empty body. Only the route that actually answers is
+    described below.
+  termsOfService: https://www.syftdata.com/terms
+  contact:
+    name: Syft Data Support
+    email: support@syftdata.com
+    url: https://www.syftdata.com/support
+servers:
+- url: https://e2.sy-d.io
+  description: Production event collector
+tags:
+- name: Events
+paths:
+  /events:
+    post:
+      operationId: collectEvents
+      summary: Publish a behavioural or custom event
+      description: >-
+        Accepts a JSON event payload from the Syft tracking tag, the SDK, or a
+        server-side caller. Syft documents custom events with an `event_name` and
+        optional `email`, `first_name`, `last_name`, `company` and `title` fields,
+        and documents that identification events carry `type: identify`. The full
+        payload schema is NOT published; the request body below records only the
+        fields Syft names in its developer guide and is therefore permissive.
+      tags:
+      - Events
+      security:
+      - sourceKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '400':
+          description: >-
+            Invalid payload. Observed live on 2026-08-13 for an empty JSON object;
+            body was {"message":"Invalid payload"}.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-probe:
+        url: https://e2.sy-d.io/events
+        method: POST
+        body: '{}'
+        status: 400
+        response: '{"message":"Invalid payload"}'
+        checked: '2026-08-13'
+        note: >-
+          Success responses were not probed — doing so would inject synthetic
+          events into a production collector. No 2xx shape is asserted.
+components:
+  schemas:
+    Event:
+      type: object
+      description: >-
+        Only the fields Syft names publicly. Additional properties are permitted
+        because the tag posts a richer, undocumented envelope.
+      additionalProperties: true
+      properties:
+        event_name:
+          type: string
+          description: Name of the custom event, e.g. "app-installed".
+          examples:
+          - app-installed
+        type:
+          type: string
+          description: >-
+            Event type. Syft documents "identify" as the type carried by
+            visitor-identification events.
+          examples:
+          - identify
+        email:
+          type: string
+          description: Visitor email address, when available.
+        first_name:
+          type: string
+        last_name:
+          type: string
+        company:
+          type: string
+        title:
+          type: string
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          examples:
+          - Invalid payload
+  securitySchemes:
+    sourceKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Syft's documented curl example sends the workspace key in a bare
+        `Authorization: {key}` header (no Bearer prefix). The browser tag carries
+        the public `sourceId` instead. The exact requirement is not documented and
+        was not verified, since verifying it would require posting a real event.

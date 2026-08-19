@@ -1,32 +1,94 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: searched
-source: https://www.npmjs.com/ (npm registry, org @syftdata) + https://github.com/syftdata/syft
+source: https://registry.npmjs.org (org @syftdata, metadata endpoint) + https://github.com/syftdata/syft + https://docs.syftdata.com/implementation/devguide
+note: >-
+  Currency check 2026-08-13. Every published @syftdata npm package belongs to the
+  ORIGINAL Syft schema-driven analytics framework (github.com/syftdata/syft) and
+  has not been republished since 2023-10 / 2024-02. None of them wrap the current
+  Lookup, Export or MCP surfaces, which are documented as raw HTTP only. The
+  production tracking tag ships from Syft's own CDN (cdn.sy-d.io) rather than a
+  registry, and the documented script URL is unpinned.
 packages:
   - name: "@syftdata/client"
     registry: npm
     url: https://www.npmjs.com/package/@syftdata/client
     version: 0.1.38-alpha.3
+    published: '2023-10-09'
     license: Apache-2.0
     language: JavaScript/TypeScript
     official: true
     description: Client library to log events; used with the syft schema-driven analytics framework.
     repository: https://github.com/syftdata/syft
+    note: 58 versions published; latest is a pre-1.0 alpha last released 2023-10-09.
   - name: "@syftdata/next"
     registry: npm
     url: https://www.npmjs.com/package/@syftdata/next
     version: 0.1.38-alpha.36
+    published: '2024-02-24'
     license: Apache-2.0
     language: TypeScript
     official: true
     description: Lightweight low-code alternative to Segment to instrument event analytics in Next.js.
     repository: https://github.com/syftdata/syft
+    note: Most recently published @syftdata package; still pre-1.0 alpha.
   - name: "@syftdata/cli"
     registry: npm
     url: https://www.npmjs.com/package/@syftdata/cli
     version: 0.1.38-alpha.3
+    published: '2023-10-09'
     license: Apache-2.0
     language: TypeScript
     official: true
     kind: cli
     description: CLI to get event instrumentation right.
     repository: https://github.com/syftdata/syft
+    see: cli/syft-data-cli.yml
+  - name: "@syftdata/common"
+    registry: npm
+    url: https://www.npmjs.com/package/@syftdata/common
+    version: 0.1.38-alpha.3
+    published: '2023-10-09'
+    license: Apache-2.0
+    language: TypeScript
+    official: true
+    description: Common types and functions used across Syft packages.
+    repository: https://github.com/syftdata/syft
+  - name: "@syftdata/codehandler"
+    registry: npm
+    url: https://www.npmjs.com/package/@syftdata/codehandler
+    version: 0.1.38-alpha.3
+    published: '2023-10-09'
+    license: Apache-2.0
+    language: TypeScript
+    official: true
+    description: Code handler for the Syft CLI; serializes/deserializes internal models.
+    repository: https://github.com/syftdata/syft
+  - name: "@syftdata/test"
+    registry: npm
+    url: https://www.npmjs.com/package/@syftdata/test
+    version: '0.1.30'
+    published: '2023-08-25'
+    license: Apache-2.0
+    language: TypeScript
+    official: true
+    description: Utility library to run unit and e2e tests for Syft clients.
+    repository: https://github.com/syftdata/syft
+  - name: syft.umd.js (Syft web tracking tag)
+    registry: cdn
+    url: https://cdn.sy-d.io/syftnext/syft.umd.js
+    version: null
+    published: null
+    official: true
+    language: JavaScript
+    description: >-
+      Production browser tracking tag / web SDK loaded via script tag. Exposes
+      window.syft with init(), identify(), track(), fetchID(), enable() and
+      disable(). Documented for CSP-compliant installs.
+    docs: https://docs.syftdata.com/implementation/devguide
+    note: >-
+      Checked 2026-08-13, nothing to record. The distribution is UNPINNED — the
+      documented URL carries no version segment and no registry metadata endpoint
+      exists for it, so a consumer cannot tell which build they are loading. An
+      RB2B-enabled variant is served from a different, account-specific URL issued
+      in the Syft app.
+    see: components/syft-data-components.yml

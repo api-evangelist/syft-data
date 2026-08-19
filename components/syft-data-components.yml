@@ -1,0 +1,87 @@
+generated: '2026-08-13'
+method: searched
+source: https://docs.syftdata.com/implementation/devguide and https://docs.syftdata.com/implementation/realtime-icp and https://docs.syftdata.com/tutorial-basics/installation
+summary: >-
+  Syft's only client-side surface is the browser tracking tag — a UMD script
+  loaded from Syft's own CDN that installs a global `window.syft` object. It is
+  not an element/UI library: it renders nothing. It is included here because it is
+  the embeddable, script-tag-distributed client runtime a developer installs on a
+  site, distinct from the npm SDKs in packages/ and from the server-side REST APIs.
+families:
+  - name: Web tracking tag (syft.umd.js)
+    kind: script-tag runtime
+    loader: https://cdn.sy-d.io/syftnext/syft.umd.js
+    global: window.syft
+    install:
+      - method: inline snippet
+        source: Copied per-workspace from https://app.syftdata.com/dashboard/settings/snippets, pasted into <head>.
+      - method: direct CDN script (recommended for strict CSP)
+        example: |
+          <script
+            id="syft-loader"
+            src="https://cdn.sy-d.io/syftnext/syft.umd.js"
+            data-api-key="{YOUR_API_KEY}"
+            data-enabled="false"
+          />
+    configuration:
+      sourceId: Public source identifier for the workspace (not a secret).
+      enabled: Set false to start opt-out until consent is granted.
+      autoTrackEnabled: Set false to disable automatic capture of page views, link clicks and form submissions.
+      trackFormSubmits: Set false to disable automatic form-submission capture.
+      enableRealTimeID: Enable real-time ICP detection on page load.
+      realTimeIDTimeout: Timeout in ms for real-time ID detection (default 2000).
+    methods:
+      - name: syft.identify(email, attrs)
+        description: >-
+          Explicitly identify a visitor who signed up or logged in via a third-party
+          provider. `source` is required (signup | login | form_submit); optional
+          firstName, lastName, type, title. Returns Promise<{icps, error}>.
+      - name: syft.track(eventName, attrs?)
+        description: Publish a custom product event; optional email, first_name, last_name, company, title.
+      - name: syft.fetchID(options?)
+        description: >-
+          Retrieve ICP classifications for the current visitor. Options timeout,
+          cacheOnly, skipCache. Returns Promise<{icps: string[] | null, error}>.
+      - name: syft.enable()
+        description: Turn tracking on after consent is granted.
+      - name: syft.disable()
+        description: Turn tracking off when consent is withdrawn.
+    consent:
+      cmp: Reads the IAB TCF v2 consent string automatically when a TCF-enabled CMP (e.g. CookieBot) is present.
+      custom: "window.syftc = { enabled: true } pre-load fallback for custom banners."
+      example_repo: https://github.com/syftdata/syft-examples/tree/main/marketing-site-consent
+    collection_endpoint:
+      host: https://e2.sy-d.io
+      paths:
+        - path: /events
+          status: live (400 "Invalid payload" on an empty body; probed 2026-08-13)
+        - path: /log
+          status: 404 Cannot POST /log (probed 2026-08-13) — named in the docs' curl example but not routed.
+      note: Verify installation by watching for requests to e2.sy-d.io in the browser network tab.
+      see: openapi/syft-data-events-api-openapi.yml
+    csp:
+      default:
+        script-src: https://cdn.sy-d.io
+        connect-src: https://*.sy-d.io
+      with_rb2b:
+        script-src: "'self' https://cdn.sy-d.io https://ddwl4m2hdecbv.cloudfront.net/b/ https://b-code.liadm.com/lc2.js https://rp.liadm.com https://idx.liadm.com"
+        connect-src: "'self' https://*.sy-d.io https://pro.ip-api.com https://alocdn.com/c/vn3d8u2u/a/xtarget/p.json https://*.liadm.com https://9xgnrndqve.execute-api.us-west-2.amazonaws.com https://a.usbrowserspeed.com"
+        default-src: "'self' https://*.liadm.com"
+      note: >-
+        Enabling the RB2B add-on changes the tag URL to an account-specific one
+        issued in the Syft app and widens the required CSP allowlist.
+    platform_guides:
+      - Google Tag Manager
+      - Next.js
+      - Webflow
+      - Framer
+      - WordPress
+      - Mintlify
+      - Docusaurus
+      - GitBook
+    versioning:
+      pinned: false
+      note: The documented CDN URL carries no version segment; the build floats to latest.
+    see: packages/syft-data-packages.yml
+embedded_dashboards: []
+element_libraries: []

@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "545c66f0-5993-4962-8276-bf9fafccf7e9",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35d0ca4d-3841-4ffa-93e0-08c8f5f58dc4",
+          "name": "Publish a behavioural or custom event",
+          "request": {
+            "name": "Publish a behavioural or custom event",
+            "description": {
+              "content": "Accepts a JSON event payload from the Syft tracking tag, the SDK, or a server-side caller. Syft documents custom events with an `event_name` and optional `email`, `first_name`, `last_name`, `company` and `title` fields, and documents that identification events carry `type: identify`. The full payload schema is NOT published; the request body below records only the fields Syft names in its developer guide and is therefore permissive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"company\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e46c56e5-5cc4-4c06-8ff5-81eaf6a93d6e",
+              "name": "Invalid payload. Observed live on 2026-08-13 for an empty JSON object; body was {\"message\":\"Invalid payload\"}.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_name\": \"app-installed\",\n  \"type\": \"identify\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"company\": \"<string>\",\n  \"title\": \"<string>\",\n  \"key_0\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid payload\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://e2.sy-d.io",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "168d9539-c0eb-4a29-ab3e-9ce69968d925",
+    "name": "Syft Data Event Collection API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ingest endpoint the Syft browser tracking tag and SDK post behavioural events to. Syft documents it twice: as the endpoint to watch in the browser network tab when verifying an installation (`https://e2.sy-d.io/events`), and as a server-side way to publish a custom event with curl. It has no reference page, no published payload schema and no version. Documented here because it is a real, live, first-party HTTP surface that appears in Syft's own install and CSP instructions.\n\nDOCS DISCREPANCY (probed 2026-08-13): the developer guide's curl example posts to `https://e2.sy-d.io/log`, which returns `404 Cannot POST /log`. The route that responds is `POST /events`, which returns `400 {\"message\":\"Invalid payload\"}` for an empty body. Only the route that actually answers is described below.\n\nContact Support:\n Name: Syft Data Support\n Email: support@syftdata.com",
+      "type": "text/plain"
+    }
+  }
+}

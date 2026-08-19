@@ -1,0 +1,98 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.syftdata.com/pricing
+docs: https://docs.syftdata.com/pricing
+api: Syft Data platform (Lookup API, Export API, MCP server)
+summary: >-
+  Hybrid subscription plus metered credits. Every plan includes unlimited seats,
+  unlimited website event tracking and unlimited company identification; usage is
+  metered in credits only when a motion ACTS on a qualified contact or account.
+  Annual billing is discounted 20%. The hosted MCP server is Pro-only.
+currency: USD
+billing_period: month
+annual_discount: 20% off monthly rates when billed annually
+plan_count: 3
+plans:
+  - name: Starter
+    price: 150
+    currency: USD
+    billing_period: month
+    included_quota:
+      credits: 500
+      unit: credits/month
+    limits:
+      seats: unlimited
+      companies_identified: unlimited
+      motions: unlimited
+      integrations: 2
+      mcp_server: false
+    overage: Billed at the same per-credit rate as the plan; no punitive overage.
+  - name: Pro
+    price: 500
+    currency: USD
+    billing_period: month
+    included_quota:
+      credits: 5000
+      unit: credits/month
+    limits:
+      seats: unlimited
+      companies_identified: unlimited
+      motions: unlimited
+      integrations: unlimited
+      mcp_server: true
+    features:
+      - Everything in Starter
+      - LinkedIn Posts Intent
+      - LinkedIn Ads Intent
+      - LinkedIn Outreach Automation
+      - Drill-down analytics
+      - Hosted MCP server (https://app.syftdata.com/api/mcp)
+    overage: Billed at the same per-credit rate as the plan; no punitive overage.
+  - name: Agency
+    price: null
+    price_label: "Let's Talk"
+    currency: USD
+    billing_period: custom
+    included_quota:
+      credits: null
+      unit: custom credit limits
+    limits:
+      seats: unlimited
+    features:
+      - Self-provision workspaces
+      - Unified account management
+      - Bulk workspace discounts
+      - Custom credit limits
+      - Trial workspace for self-evaluation
+    note: Contact-sales tier; no published price.
+credit_model:
+  version: '2.2'
+  effective: '2026-05-11'
+  source: https://docs.syftdata.com/pricing
+  principle: One entity, one charge per month.
+  activation_credits:
+    - entity: Activated Contact — first-party
+      cost_credits: 1
+      when: You action a known person discovered via your own signals (form fills, logins, LinkedIn interactions, CSV enrichment).
+    - entity: Activated Contact — de-anonymized
+      cost_credits: 5
+      when: You action a person Syft identified from anonymous traffic.
+    - entity: Activated Account
+      cost_credits: 1
+      when: You action a company that has no contacts activated in that month.
+  signal_credits:
+    - signal: RB2B Contact Identification add-on
+      cost_credits: 2
+      unit: per unique contact per month
+      when: A unique visitor is identified via the RB2B add-on, on every identification.
+  rules:
+    - No double charging between company and contact in the same month; a prior account charge is applied toward the contact.
+    - Credits reset monthly on the billing date and do not roll over.
+    - Credits are non-refundable.
+    - Signal Credits and Activation Credits are independent of each other.
+  monitoring: https://app.syftdata.com/dashboard/settings/billing
+trial:
+  free_trial: false
+  note: >-
+    No published free tier. The signup flow is advertised as "No credit card ·
+    ~10 min setup"; the Agency tier includes a trial workspace for self-evaluation.

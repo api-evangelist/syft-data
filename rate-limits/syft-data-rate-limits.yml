@@ -1,0 +1,52 @@
+generated: '2026-08-13'
+method: searched
+source: https://docs.syftdata.com/implementation/lookup-api and https://docs.syftdata.com/implementation/export-api and https://docs.syftdata.com/pricing
+api: Syft Data Lookup & Export API
+limit_count: 0
+note: >-
+  Syft publishes NO request-rate limits for the Lookup API, the Export API or the
+  hosted MCP server — no per-key/per-account ceiling, no window, no burst, and no
+  documented 429 behaviour. Probed live 2026-08-13: an anonymous POST to
+  /api/syft/lookup and a bad-key GET to /api/motion/{id}/export both return 401
+  with no RateLimit-*, X-RateLimit-* or Retry-After header, so there is no runtime
+  signal an agent can back off on either. What Syft DOES meter is monthly credit
+  consumption (a billing quota, not a rate limit) plus two per-response result
+  caps. Recorded as an honest zero.
+limits: []
+response_headers:
+  observed: []
+  documented: []
+  probed:
+    - url: https://app.syftdata.com/api/syft/lookup
+      method: POST
+      status: 401
+      rate_limit_headers: none
+      checked: '2026-08-13'
+    - url: https://app.syftdata.com/api/motion/{motionId}/export
+      method: GET
+      status: 401
+      rate_limit_headers: none
+      checked: '2026-08-13'
+exhaustion_status_code: undocumented
+result_caps:
+  - scope: lookupEntities (domain lookup)
+    cap: Up to 10 known contacts returned per company.
+    source: https://docs.syftdata.com/implementation/lookup-api
+  - scope: lookupEntities (includeActivity=true)
+    cap: Up to 10 sessions returned per contact.
+    source: https://docs.syftdata.com/implementation/lookup-api
+  - scope: exportMotionRuns
+    cap: limit query parameter, default 50, maximum 100 items per page.
+    source: openapi/syft-data-export-api-openapi.yml
+quotas:
+  type: monthly credits (billing, not rate)
+  reset: Monthly on the billing date; unused credits do not roll over.
+  overage: Processing continues; overage billed at the plan's per-credit rate.
+  tiers:
+    - plan: Starter
+      credits_per_month: 500
+    - plan: Pro
+      credits_per_month: 5000
+    - plan: Agency
+      credits_per_month: custom
+  see: plans/syft-data-plans-pricing.yml

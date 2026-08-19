@@ -1,6 +1,11 @@
-generated: '2026-07-21'
-method: searched
-source: live probes of Syft Data hosts
+generated: '2026-08-13'
+method: probed
+source: live probes of Syft Data hosts (www, app, docs, blog)
+note: >-
+  app.syftdata.com serves three real /.well-known documents — the Auth0-backed
+  OIDC discovery document plus the RFC 8414 authorization-server metadata and
+  RFC 9728 protected-resource metadata that back the hosted MCP server's OAuth
+  flow. No security.txt, api-catalog or ai-plugin.json is served on any host.
 entries:
   - path: /.well-known/openid-configuration
     host: app.syftdata.com
@@ -8,8 +13,36 @@ entries:
     status: 200
     file: syft-data-openid-configuration.json
     note: Auth0 tenant (syft-studio.us.auth0.com) backing app + MCP OAuth login.
+  - path: /.well-known/oauth-authorization-server
+    host: app.syftdata.com
+    url: https://app.syftdata.com/.well-known/oauth-authorization-server
+    status: 200
+    file: syft-data-oauth-authorization-server.json
+    note: >-
+      RFC 8414 metadata. issuer https://app.syftdata.com; authorize/token endpoints
+      proxied at /api/mcp/authorize and /api/mcp/token; dynamic client registration
+      endpoint advertised; jwks_uri on the Auth0 tenant.
+  - path: /.well-known/oauth-protected-resource
+    host: app.syftdata.com
+    url: https://app.syftdata.com/.well-known/oauth-protected-resource
+    status: 200
+    file: syft-data-oauth-protected-resource.json
+    note: >-
+      RFC 9728 metadata naming https://app.syftdata.com/api/mcp as the protected
+      resource; referenced by the WWW-Authenticate header the MCP endpoint returns
+      on an anonymous call.
+  - path: /.well-known/oauth-protected-resource/api/mcp
+    host: app.syftdata.com
+    status: 200
+    note: Path-suffixed variant returning the same protected-resource document.
+  - path: /.well-known/oauth-authorization-server/api/mcp
+    host: app.syftdata.com
+    status: 404
   - path: /.well-known/security.txt
     host: www.syftdata.com
+    status: 404
+  - path: /.well-known/security.txt
+    host: app.syftdata.com
     status: 404
   - path: /.well-known/security.txt
     host: docs.syftdata.com
@@ -19,4 +52,22 @@ entries:
     status: 404
   - path: /.well-known/api-catalog
     host: www.syftdata.com
+    status: 404
+  - path: /.well-known/agent-card.json
+    host: www.syftdata.com
+    status: 404
+  - path: /.well-known/agent-card.json
+    host: app.syftdata.com
+    status: 404
+  - path: /.well-known/agent-card.json
+    host: docs.syftdata.com
+    status: 404
+  - path: /.well-known/agent.json
+    host: www.syftdata.com
+    status: 404
+  - path: /.well-known/agent.json
+    host: app.syftdata.com
+    status: 404
+  - path: /.well-known/agent.json
+    host: docs.syftdata.com
     status: 404

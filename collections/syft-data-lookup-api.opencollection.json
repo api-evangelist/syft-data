@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Syft Data & Export Lookup API",
+    "version": "alpha"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lookup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Look up a company or contact by email or domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.syftdata.com/api/syft/lookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Look up Syft company and contact intelligence by email or domain. Returns only companies and contacts Syft has already observed; returns 404 if Syft has not seen the entity. Not an enrichment API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

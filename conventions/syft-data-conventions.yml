@@ -1,15 +1,25 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: searched
-source: https://docs.syftdata.com/implementation/lookup-api and https://docs.syftdata.com/implementation/export-api
-api: Syft Data Lookup & Export API
+source: >-
+  https://docs.syftdata.com/implementation/lookup-api,
+  https://docs.syftdata.com/implementation/export-api,
+  https://docs.syftdata.com/implementation/devguide, plus live probes 2026-08-13
+api: Syft Data Lookup, Export & Events APIs
 auth_style:
   scheme: bearer
   key_prefix: sk_live_
   alt_header: x-syft-secret-key
+  alt_body_field: secretKey
+  public_client_key: sourceId (browser tag; not a secret)
+  mcp: OAuth 2.0 (Auth0) or Authorization Bearer with a Syft API key
   see: authentication/syft-data-authentication.yml
 idempotency:
   supported: false
-  note: No idempotency key documented; Lookup is a read POST and Export is a GET.
+  note: >-
+    No idempotency key on any surface. Lookup is a read expressed as POST and
+    Export is a GET, so both are naturally safe to retry; the only write paths
+    (enqueue_leads, manage_motion_run) are MCP-only and carry no documented
+    idempotency guarantee.
 pagination:
   style: cursor
   request_params:
@@ -19,22 +29,60 @@ pagination:
     items: Array of results.
     nextCursor: Opaque cursor for the next page (null when exhausted).
   ordering: Runs ordered by execution timestamp; order=asc|desc.
+  applies_to: [exportMotionRuns]
 field_selection:
   param: fields
   style: Comma-separated top-level field allow-list (runId always included).
   applies_to: exportMotionRuns
 filtering:
   export: since, until (ISO8601), status (completed|failed|skipped|in_progress).
+expansion:
+  param: includeActivity
+  style: Boolean flag on lookupEntities that attaches site_activity and linkedin_activity arrays to each contact.
+metadata:
+  supported: false
+  note: No customer-defined metadata fields on any documented request or response.
+request_tracing:
+  request_id_header: none
+  note: >-
+    No request-id or correlation header is documented or returned. Probed
+    2026-08-13: 401 responses from /api/syft/lookup carry only Vercel edge headers
+    (x-vercel-id, x-vercel-cache, x-matched-path), which are infrastructure
+    identifiers rather than a supported tracing contract.
 error_envelope:
   shape: '{ "error": "<message>" }'
   format: custom-json
+  note: >-
+    The Lookup/Export surfaces use { "error": ... }; the event collector at
+    e2.sy-d.io uses a different key, { "message": ... }. The two surfaces do not
+    share an error envelope.
   see: errors/syft-data-problem-types.yml
 versioning:
-  scheme: Lookup API labeled "alpha"; interface may change.
+  scheme: Lookup API labeled "alpha"; interface may change. Export and Events carry no version at all.
+  in_path: false
+  in_header: false
   see: lifecycle/syft-data-lifecycle.yml
 rate_limits:
   documented: false
+  headers: none observed
+  see: rate-limits/syft-data-rate-limits.yml
   soft_limits:
     - Up to 10 contacts returned per company lookup.
     - Up to 10 sessions returned per contact when includeActivity is enabled.
-    - Credits-based usage plan (500 Starter / 5,000 Pro per month).
+    - Credits-based usage plan (500 Starter / 5,000 Pro per month) — see plans/syft-data-plans-pricing.yml.
+known_doc_defects:
+  - id: log-endpoint-404
+    surface: Event Collection API
+    docs: https://docs.syftdata.com/implementation/devguide
+    issue: >-
+      The custom-event curl example posts to https://e2.sy-d.io/log, which returns
+      "404 Cannot POST /log". The route that answers is POST /events, which the
+      same page names in its installation-verification section.
+    probed: '2026-08-13'
+  - id: sdk-registry-drift
+    surface: npm @syftdata/*
+    issue: >-
+      Every published @syftdata npm package belongs to the earlier schema-driven
+      analytics framework and was last released 2023-10 / 2024-02. No client
+      library wraps the current Lookup, Export or MCP surfaces.
+    see: packages/syft-data-packages.yml

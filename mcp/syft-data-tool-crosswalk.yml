@@ -1,0 +1,109 @@
+generated: '2026-08-13'
+method: derived
+source: mcp/syft-data-mcp.yml + openapi/syft-data-lookup-api-openapi.yml + openapi/syft-data-export-api-openapi.yml + https://docs.syftdata.com/ai-agents/connect
+api: Syft Data
+summary: >-
+  Syft's agent surface is far wider than its REST surface. The hosted MCP server
+  publishes 18 tools spanning discovery, GTM configuration, motion execution and
+  workspace admin; the public REST contract is 2 operations. Only two tools have a
+  documented REST equivalent — the rest are MCP-only, backed by the private app
+  API. Confidence is set from the docs' own tool descriptions: the live MCP
+  schemas could not be read (tools/list returns 401 invalid_token without OAuth),
+  so no inputSchema is asserted here.
+surfaces:
+  openapi:
+    - file: openapi/syft-data-lookup-api-openapi.yml
+      base: https://app.syftdata.com/api
+      gated: false
+      note: Lookup API is in alpha and access-gated to select customers, but the contract is public.
+    - file: openapi/syft-data-export-api-openapi.yml
+      base: https://app.syftdata.com/api
+      gated: false
+  mcp:
+    url: https://app.syftdata.com/api/mcp
+    transport: http
+    gated: true
+    probe:
+      method: tools/list
+      status: 401
+      body: '{"error":"invalid_token","error_description":"No authorization provided"}'
+      www_authenticate: resource_metadata=https://app.syftdata.com/.well-known/oauth-protected-resource
+      checked: '2026-08-13'
+    plan_gate: Pro plan required.
+  graphql: null
+coverage:
+  mcp_tools: 18
+  rest_operations: 2
+  mapped: 2
+  mcp_only: 16
+  rest_only: 0
+crosswalk:
+  - tool: lookup_entities
+    category: discover
+    rest:
+      - lookupEntities
+    binding: direct
+    confidence: high
+    note: >-
+      Both are described identically — deterministic lookup of a contact by email
+      or a company by domain, returning site activity, session history and intent.
+      REST inputSchema equivalent: {email?, domain?, includeActivity?} with one of
+      email/domain required; email takes precedence.
+  - tool: get_motion_runs
+    category: run
+    rest:
+      - exportMotionRuns
+    binding: partial
+    confidence: medium
+    note: >-
+      Both read motion runs. The REST operation is a cursor-paginated export scoped
+      to one motionId with since/until/status/order/fields filters; the MCP tool is
+      described as a cross-motion review including pending approvals and step
+      detail, so it is a superset rather than a 1:1 wrapper.
+mcp_only:
+  - tool: query_entities
+    reason: Natural-language search with sorting/ranking over accounts and contacts; no public REST search operation exists.
+  - tool: find_connections
+    reason: Reads the team's LinkedIn network synced via the Syft browser extension; no public REST surface.
+  - tool: get_org_setup
+    reason: Reads ICPs, personas, signals, motions, integrations and filter fields from the app; not exposed over public REST.
+  - tool: build_icp
+    reason: Multi-turn conversational create/edit of an Ideal Customer Profile; app-only.
+  - tool: build_persona
+    reason: Multi-turn conversational create/edit of a Persona; app-only.
+  - tool: build_signal
+    reason: Multi-turn conversational create/edit of a behavioral Signal; app-only.
+  - tool: create_target_list
+    reason: Builds a Target Account List (target / do-not-track / competitor); app-only.
+  - tool: delete_entity
+    reason: Deletes an ICP, Persona or Signal with referential-integrity refusal; app-only.
+  - tool: build_motion
+    reason: Conversational authoring of a motion (trigger, filters, actions); app-only.
+  - tool: enqueue_leads
+    reason: Pushes leads into an active motion; the public REST surface can only READ motion results, never write to one.
+  - tool: manage_motion_run
+    reason: Approve, reject or modify a motion run awaiting approval; app-only write path.
+  - tool: get_web_tag_snippet
+    reason: Generates the per-platform tracking-tag install snippet; served from the app settings UI, not REST.
+  - tool: verify_tag_installation
+    reason: Confirms the tag is firing for the org; no REST equivalent.
+  - tool: send_tag_setup_email
+    reason: Sends install instructions to a teammate; messaging action with no REST surface.
+  - tool: invite_user_to_workspace
+    reason: Workspace membership admin; no public REST surface.
+  - tool: get_billing_info
+    reason: Credit usage, plan and billing history; exposed in the app dashboard only.
+rest_only: []
+notes:
+  - >-
+    The write asymmetry is the finding: an agent connected over MCP can create
+    ICPs, personas, signals, motions and target lists and can enqueue and approve
+    outreach, while a developer holding an sk_live_ key can only read a lookup and
+    poll an export. Anything an integrator wants to automate over HTTP has to go
+    through the MCP server.
+  - >-
+    Tool inputSchemas are NOT recorded here because the live schemas require an
+    authenticated OAuth session. Names and descriptions come from the provider's
+    published tool table at https://docs.syftdata.com/ai-agents/connect. An
+    authenticated tools/list introspection would be needed to upgrade this to
+    schema-level fidelity.

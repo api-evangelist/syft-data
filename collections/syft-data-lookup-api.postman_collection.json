@@ -1,0 +1,298 @@
+{
+  "item": [
+    {
+      "id": "d624aa64-9e63-4f09-8e64-f629574663cc",
+      "name": "Lookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "275c9414-bf62-468d-80d6-109dccd76fb4",
+          "name": "Look up a company or contact by email or domain",
+          "request": {
+            "name": "Look up a company or contact by email or domain",
+            "description": {
+              "content": "Look up Syft company and contact intelligence by email or domain. Returns only companies and contacts Syft has already observed; returns 404 if Syft has not seen the entity. Not an enrichment API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "syft",
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"includeActivity\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "320eedf5-3f91-4824-8df9-09d10638dc61",
+              "name": "Company and matching contacts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "syft",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"includeActivity\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"company\": {\n    \"domain\": \"string\",\n    \"name\": \"string\",\n    \"industry\": \"string\",\n    \"syft_sessions\": 5556,\n    \"syft_visitors\": 5871,\n    \"syft_first_seen\": \"1957-10-10T21:41:06.446Z\",\n    \"syft_last_seen\": \"2012-01-20T08:25:55.214Z\",\n    \"syft_purchase_intent\": \"low\"\n  },\n  \"contacts\": [\n    {\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"syft_sessions\": 531,\n      \"syft_first_seen\": \"1951-09-16T21:03:46.346Z\",\n      \"syft_last_seen\": \"2015-04-05T12:10:56.459Z\",\n      \"site_activity\": [\n        {\n          \"active_time\": 1177,\n          \"start_time\": \"2025-11-09T08:18:25.650Z\",\n          \"end_time\": \"2013-09-25T10:36:36.419Z\",\n          \"pages_visited\": [\n            \"string\",\n            \"string\"\n          ],\n          \"signals\": [\n            \"string\",\n            \"string\"\n          ],\n          \"referrer\": \"string\",\n          \"intent\": \"very_high\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"active_time\": 6325,\n          \"start_time\": \"1982-02-21T14:03:32.254Z\",\n          \"end_time\": \"1978-09-17T23:17:15.008Z\",\n          \"pages_visited\": [\n            \"string\",\n            \"string\"\n          ],\n          \"signals\": [\n            \"string\",\n            \"string\"\n          ],\n          \"referrer\": \"string\",\n          \"intent\": \"medium\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"linkedin_activity\": [\n        {\n          \"start_time\": \"2011-10-01T05:22:30.021Z\",\n          \"linkedin_impressions\": 7855\n        },\n        {\n          \"start_time\": \"1994-01-31T08:41:31.243Z\",\n          \"linkedin_impressions\": 7788\n        }\n      ]\n    },\n    {\n      \"email\": \"string\",\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"syft_sessions\": 7762,\n      \"syft_first_seen\": \"1974-03-09T14:18:32.861Z\",\n      \"syft_last_seen\": \"2007-02-19T21:52:41.399Z\",\n      \"site_activity\": [\n        {\n          \"active_time\": 9666,\n          \"start_time\": \"2015-01-21T10:22:03.093Z\",\n          \"end_time\": \"1990-09-20T06:43:57.672Z\",\n          \"pages_visited\": [\n            \"string\",\n            \"string\"\n          ],\n          \"signals\": [\n            \"string\",\n            \"string\"\n          ],\n          \"referrer\": \"string\",\n          \"intent\": \"low\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\"\n        },\n        {\n          \"active_time\": 3038,\n          \"start_time\": \"1987-06-07T10:49:58.811Z\",\n          \"end_time\": \"1965-01-11T08:57:45.137Z\",\n          \"pages_visited\": [\n            \"string\",\n            \"string\"\n          ],\n          \"signals\": [\n            \"string\",\n            \"string\"\n          ],\n          \"referrer\": \"string\",\n          \"intent\": \"high\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\"\n        }\n      ],\n      \"linkedin_activity\": [\n        {\n          \"start_time\": \"1985-03-09T17:25:00.103Z\",\n          \"linkedin_impressions\": 9109\n        },\n        {\n          \"start_time\": \"1957-03-21T19:00:42.219Z\",\n          \"linkedin_impressions\": 3802\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0f02c51-d171-469f-bd80-c1fee683596b",
+              "name": "Missing both email and domain",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "syft",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"includeActivity\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid input\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f43b978b-a7f1-4ec1-b2ea-c1e4bc615146",
+              "name": "Invalid or missing secret key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "syft",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"includeActivity\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid input\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c5e2650-4e93-402d-88b0-3e870dc1d483",
+              "name": "No matching company or contact found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "syft",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"domain\": \"<string>\",\n  \"includeActivity\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid input\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.syftdata.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c5b0f32e-64c7-49cc-9b3a-371e240dc0ee",
+    "name": "Syft Data & Export Lookup API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST APIs for querying Syft Data programmatically. The Lookup API returns company and contact intelligence (site sessions and LinkedIn engagement) for accounts and people Syft has already observed on your site or LinkedIn ads. The Export API retrieves the results of a motion's execution for polling integrations. The Lookup API is in alpha and available to select customers. Both APIs authenticate with a Server Secret Key that starts with `sk_live_`.\n\nContact Support:\n Name: Syft Data Support\n Email: support@syftdata.com",
+      "type": "text/plain"
+    }
+  }
+}

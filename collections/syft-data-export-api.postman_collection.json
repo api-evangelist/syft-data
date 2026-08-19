@@ -1,0 +1,292 @@
+{
+  "item": [
+    {
+      "id": "b57c6396-fbdb-41a9-90aa-39f561e957b3",
+      "name": "Export",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8e744d9d-d2dc-48cc-9447-53677db3b4cf",
+          "name": "Export the results of a motion's execution",
+          "request": {
+            "name": "Export the results of a motion's execution",
+            "description": {
+              "content": "Retrieve contacts and accounts processed by a motion, along with their evaluation outcomes and action summaries. Cursor-paginated; ideal for polling for motion results at a regular interval.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "motion",
+                ":motionId",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Opaque pagination cursor; pass the nextCursor from the previous response."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Max items per page (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<dateTime>",
+                  "description": "Only return runs created/updated after this ISO8601 timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<dateTime>",
+                  "description": "Only return runs created/updated before this ISO8601 timestamp."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "completed",
+                  "description": "Filter by status. Defaults to completed."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated top-level fields to include (runId always included)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "motionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc2571af-2a00-4cb5-b953-5cde2d091546",
+              "name": "Page of motion runs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "motion",
+                    ":motionId",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "completed"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "motionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"runId\": \"string\",\n      \"status\": \"failed\",\n      \"createdAt\": \"1992-01-08T21:58:17.372Z\",\n      \"updatedAt\": \"1949-03-18T09:16:06.804Z\",\n      \"completedAt\": \"1968-03-08T04:20:40.510Z\",\n      \"targetType\": \"string\",\n      \"triggerSource\": \"string\",\n      \"account\": {}\n    },\n    {\n      \"runId\": \"string\",\n      \"status\": \"failed\",\n      \"createdAt\": \"2019-01-07T14:07:45.029Z\",\n      \"updatedAt\": \"1991-11-18T19:15:45.703Z\",\n      \"completedAt\": \"1986-06-19T08:42:19.439Z\",\n      \"targetType\": \"string\",\n      \"triggerSource\": \"string\",\n      \"account\": {}\n    }\n  ],\n  \"nextCursor\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db5d854e-e386-4f92-b1dd-f7106d3fad82",
+              "name": "Invalid or missing secret key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "motion",
+                    ":motionId",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "completed"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "motionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid input\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.syftdata.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "09c2e261-1700-4e5c-afc4-abfc5ed3b9db",
+    "name": "Syft Data Lookup & Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST APIs for querying Syft Data programmatically. The Lookup API returns company and contact intelligence (site sessions and LinkedIn engagement) for accounts and people Syft has already observed on your site or LinkedIn ads. The Export API retrieves the results of a motion's execution for polling integrations. The Lookup API is in alpha and available to select customers. Both APIs authenticate with a Server Secret Key that starts with `sk_live_`.\n\nContact Support:\n Name: Syft Data Support\n Email: support@syftdata.com",
+      "type": "text/plain"
+    }
+  }
+}

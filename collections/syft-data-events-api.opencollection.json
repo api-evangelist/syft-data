@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Syft Data Event Collection API",
+    "version": "unversioned"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Publish a behavioural or custom event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://e2.sy-d.io/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Accepts a JSON event payload from the Syft tracking tag, the SDK, or a server-side caller. Syft documents custom events with an `event_name` and optional `email`, `first_name`, `last_name`, `company` and `title` fields, and documents that identification events carry `type: identify`. The full payload schema is NOT published; the request body below records only the fields Syft names in its developer guide and is therefore permissive."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

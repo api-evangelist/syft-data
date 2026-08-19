@@ -1,14 +1,47 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: derived
-source: openapi/syft-data-openapi.yaml + https://app.syftdata.com/.well-known/openid-configuration + docs
-api: Syft Data Lookup & Export API
+source: >-
+  openapi/ + live probes of app.syftdata.com /.well-known/* and /api/mcp on
+  2026-08-13 + https://www.syftdata.com/dpa + https://docs.syftdata.com
+api: Syft Data Lookup, Export, Events & MCP surfaces
 standards:
   - id: oauth2
     conforms: true
-    evidence: MCP server authenticates via OAuth 2.0 through the Auth0 tenant syft-studio.us.auth0.com.
+    evidence: >-
+      MCP server authenticates via OAuth 2.0 through the Auth0 tenant
+      syft-studio.us.auth0.com. An anonymous tools/list call returns 401 with a
+      well-formed WWW-Authenticate Bearer challenge carrying resource_metadata.
   - id: oidc
     conforms: true
-    evidence: /.well-known/openid-configuration published; scopes openid/profile/email/offline_access.
+    evidence: >-
+      /.well-known/openid-configuration published (200); scopes openid, profile,
+      email, offline_access.
+  - id: rfc8414
+    name: OAuth 2.0 Authorization Server Metadata
+    conforms: true
+    evidence: >-
+      https://app.syftdata.com/.well-known/oauth-authorization-server returns 200
+      with issuer, authorization_endpoint, token_endpoint, jwks_uri,
+      registration_endpoint, scopes_supported and code_challenge_methods_supported.
+      Probed 2026-08-13.
+  - id: rfc9728
+    name: OAuth 2.0 Protected Resource Metadata
+    conforms: true
+    evidence: >-
+      https://app.syftdata.com/.well-known/oauth-protected-resource returns 200
+      naming https://app.syftdata.com/api/mcp as the resource, and the MCP
+      endpoint's 401 WWW-Authenticate header points at it. Probed 2026-08-13.
+  - id: rfc7591
+    name: OAuth 2.0 Dynamic Client Registration
+    conforms: true
+    evidence: registration_endpoint advertised in the authorization-server metadata document.
+  - id: mcp
+    name: Model Context Protocol
+    conforms: true
+    evidence: >-
+      Official hosted server at https://app.syftdata.com/api/mcp over streamable
+      HTTP; advertises Mcp-Session-Id and mcp-protocol-version in CORS
+      expose-headers. 18 tools documented. Live schema introspection is OAuth-gated.
   - id: rfc9457
     conforms: false
     evidence: 'Errors use a flat { "error": "..." } envelope, not application/problem+json.'
@@ -17,7 +50,54 @@ standards:
     evidence: Export API uses opaque cursor pagination (cursor/limit/nextCursor).
   - id: idempotency
     conforms: false
-    evidence: No idempotency-key mechanism documented.
-  - id: json:api
+    evidence: No idempotency-key mechanism documented on any surface.
+  - id: 'json:api'
     conforms: false
     evidence: Custom JSON envelopes; not JSON:API.
+  - id: iab-tcf-v2
+    name: IAB Transparency & Consent Framework v2
+    conforms: true
+    evidence: >-
+      Tracking tag automatically reads and respects the TCF v2 consent string when
+      a TCF-enabled CMP is installed; documented opt-out initialization for custom
+      consent banners.
+    source: https://docs.syftdata.com/implementation/devguide
+  - id: gdpr
+    conforms: true
+    evidence: >-
+      DPA published (last updated 2026-05-07) incorporating the EEA Standard
+      Contractual Clauses and the UK Addendum for international transfers.
+    source: https://www.syftdata.com/dpa
+  - id: ccpa
+    conforms: true
+    evidence: >-
+      DPA designates Syft Data, Inc. a "service provider" under Cal. Civ. Code
+      § 1798.100 et seq and restricts processing to the business purpose.
+    source: https://www.syftdata.com/dpa
+  - id: soc2
+    conforms: partial
+    evidence: >-
+      DPA commits the provider to maintaining annually updated SOC 2 Type I and
+      Type II reports and penetration testing, but no dated attestation, auditor or
+      report is published; the trust center at trust.syftdata.com renders nothing
+      anonymously. Commitment, not evidence of a current certification.
+    source: https://www.syftdata.com/dpa
+    see: security/syft-data-trust-center.yml
+  - id: openapi
+    conforms: false
+    evidence: >-
+      Syft publishes no OpenAPI/Swagger document. Probed 2026-08-13:
+      app.syftdata.com/openapi.json, /api/openapi.json, /swagger.json and
+      /api/api-docs all return the Next.js SPA shell (HTTP 200, text/html);
+      docs.syftdata.com/openapi.json is 404. The specs in openapi/ were generated
+      from the published REST documentation.
+  - id: a2a
+    conforms: false
+    evidence: >-
+      No agent card. /.well-known/agent-card.json and /.well-known/agent.json
+      return 404 on www, app, docs and blog hosts. Probed 2026-08-13.
+  - id: llmstxt
+    conforms: true
+    evidence: >-
+      https://www.syftdata.com/llms.txt (200) and https://docs.syftdata.com/llms.txt
+      (200, full docs corpus) are both served. Probed 2026-08-13.

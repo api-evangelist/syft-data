@@ -1,0 +1,39 @@
+# generated: '2026-08-13'
+# method: generated
+# source: overlays openapi/syft-data-export-api-openapi.yml with API Evangelist enrichment metadata
+overlay: 1.0.0
+info:
+  title: API Evangelist enrichment overlay for the Syft Data Export API
+  version: 1.0.0
+extends: ../openapi/syft-data-export-api-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apisio-enriched: true
+      x-apisio-provider: syft-data
+      x-apisio-auth: Server Secret Key (sk_live_) via Authorization Bearer or x-syft-secret-key header
+      x-apisio-rate-limits: none published; see rate-limits/syft-data-rate-limits.yml
+      x-apisio-plans: Credit-metered; see plans/syft-data-plans-pricing.yml
+  - target: $.paths['/motion/{motionId}/export'].get
+    update:
+      x-apisio-pagination:
+        style: cursor
+        request: cursor, limit (default 50, max 100)
+        response: items[], nextCursor (null when exhausted)
+      x-apisio-field-selection: >-
+        `fields` query parameter takes a comma-separated top-level allow-list;
+        runId is always returned.
+      x-apisio-polling: >-
+        Intended for polling integrations — filter with since/until and order=asc
+        to walk forward through completed runs.
+      x-apisio-mcp-equivalent: >-
+        get_motion_runs (superset — the MCP tool spans motions and includes
+        pending approvals; see mcp/syft-data-tool-crosswalk.yml)
+      x-apisio-write-gap: >-
+        Read-only. Enqueuing leads into a motion and approving a run are available
+        over MCP but have no public REST operation.
+  - target: $.components.schemas.Error
+    update:
+      x-apisio-error-format: >-
+        Flat { "error": "..." } envelope, not RFC 9457 problem+json. See
+        errors/syft-data-problem-types.yml.

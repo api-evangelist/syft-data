@@ -1,18 +1,65 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: searched
-source: https://docs.syftdata.com/implementation/lookup-api
-api: Syft Data Lookup & Export API
+source: >-
+  https://docs.syftdata.com/implementation/lookup-api,
+  https://docs.syftdata.com/implementation/export-api, plus live probes 2026-08-13
+api: Syft Data Lookup, Export, Events & MCP surfaces
 versioning:
   scheme: named-stage
   current: alpha
+  in_path: false
+  in_header: false
   note: >-
     The Lookup API is in alpha and available to select customers; the interface
-    may change as Syft iterates on feedback. The Export API is generally documented.
+    may change as Syft iterates on feedback. The Export API is generally
+    documented but carries no version identifier. The event collector at
+    e2.sy-d.io is unversioned. There is no dated changelog on any host.
 deprecation_policy:
   documented: false
 sunset_headers: false
+changelog:
+  published: false
+  probed:
+    - url: https://www.syftdata.com/changelog
+      status: 404
+    - url: https://docs.syftdata.com/changelog
+      status: 404
+  checked: '2026-08-13'
+  note: No dated changelog or release notes anywhere on the marketing site or docs.
 status_page:
   present: false
-  probed: https://status.syftdata.com/ (no response)
+  probed:
+    - url: https://status.syftdata.com/
+      status: 000
+      note: Host does not resolve.
+  checked: '2026-08-13'
 sla:
   documented: false
+plan_gates:
+  - surface: Lookup API
+    gate: Alpha; access granted to select customers on request.
+  - surface: MCP server
+    gate: Pro plan required.
+    source: https://docs.syftdata.com/ai-agents/connect
+deprecated_operations: []
+decay_signals:
+  - signal: SDK release drift
+    detail: >-
+      All first-party npm packages (@syftdata/client, next, cli, common,
+      codehandler, test) were last published between 2023-08 and 2024-02 and
+      target the earlier schema-driven analytics framework. The current Lookup,
+      Export and MCP surfaces have no client library at all.
+    checked: '2026-08-13'
+    see: packages/syft-data-packages.yml
+  - signal: Stale docs example
+    detail: >-
+      The developer guide's custom-event curl targets https://e2.sy-d.io/log,
+      which returns 404; the live route is POST /events.
+    checked: '2026-08-13'
+    see: conventions/syft-data-conventions.yml
+  - signal: Unpinned client distribution
+    detail: >-
+      The documented tracking-tag URL (https://cdn.sy-d.io/syftnext/syft.umd.js)
+      carries no version segment, so consumers cannot pin or audit the build they
+      load.
+    see: components/syft-data-components.yml

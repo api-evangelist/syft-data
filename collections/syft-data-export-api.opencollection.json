@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Syft Data Lookup & Export API",
+    "version": "alpha"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Export the results of a motion's execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.syftdata.com/api/motion/:motionId/export",
+            "params": [
+              {
+                "name": "motionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Opaque pagination cursor; pass the nextCursor from the previous response."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max items per page (max 100)."
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Only return runs created/updated after this ISO8601 timestamp."
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "Only return runs created/updated before this ISO8601 timestamp."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by status. Defaults to completed."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated top-level fields to include (runId always included)."
+              }
+            ]
+          },
+          "docs": "Retrieve contacts and accounts processed by a motion, along with their evaluation outcomes and action summaries. Cursor-paginated; ideal for polling for motion results at a regular interval."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
