@@ -132,6 +132,9 @@ apis:
   humanURL: https://docs.syftdata.com/implementation/devguide
   baseURL: https://e2.sy-d.io
   tags:
+  - Event
+  - Tracking
+  tags_raw:
   - Events
   - Tracking
   properties:
