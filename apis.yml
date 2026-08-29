@@ -11,6 +11,18 @@ description: >-
   webhooks, and an official hosted MCP server so AI agents can query visitor data
   and build automations from chat.
 url: https://raw.githubusercontent.com/api-evangelist/syft-data/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
