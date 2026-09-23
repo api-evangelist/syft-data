@@ -1,16 +1,28 @@
 {
   "provider": "syft-data",
   "sources": [
-    "syft-data-export-api-openapi.yml",
-    "syft-data-lookup-api-openapi.yml"
+    "_original/syft-data-openapi.yaml",
+    "syft-data-events-api-openapi.yml"
   ],
   "outputs": [
     "syft-data-export-api-openapi.yml",
-    "syft-data-lookup-api-openapi.yml"
+    "syft-data-lookup-api-openapi.yml",
+    "syft-data-events-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [],
-  "skipped": []
+  "warnings": [
+    "syft-data-events-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /events post); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "syft-data-openapi.yaml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "syft-data-openapi.yaml: declared missing tag: Export",
+    "syft-data-openapi.yaml: declared missing tag: Lookup",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "syft-data-export-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "syft-data-lookup-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

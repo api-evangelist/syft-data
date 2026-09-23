@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Syft Data Lookup & Export API
+  title: Syft Data Lookup Export API
   version: alpha
   description: REST APIs for querying Syft Data programmatically. The Lookup API returns company and contact intelligence (site sessions and LinkedIn engagement) for accounts and people Syft has already observed on your site or LinkedIn ads. The Export API retrieves the results of a motion's execution for polling integrations. The Lookup API is in alpha and available to select customers. Both APIs authenticate with a Server Secret Key that starts with `sk_live_`.
   termsOfService: https://www.syftdata.com/terms
@@ -93,15 +93,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          examples:
-          - Invalid input
-          - Unauthorized
-          - Not found
     MotionRun:
       type: object
       properties:
@@ -136,6 +127,15 @@ components:
           type: array
           items:
             type: object
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+          - Invalid input
+          - Unauthorized
+          - Not found
     ExportResponse:
       type: object
       properties:

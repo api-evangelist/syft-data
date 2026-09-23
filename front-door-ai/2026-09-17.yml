@@ -1,0 +1,27 @@
+# Front Door AI Index — syft-data — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: syft-data
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.syftdata.com
+  final_host: www.syftdata.com
+  ownership: own
+  owner: syft-data
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 3
+  host_score: 3
+  density: 5.92
+  words: 507
+  tiers:
+    agentic: 1
+    core: 2
+    model: 0
+  ambiguous: 1
+  top_terms:
+    AI: 2
+    AI agent: 1
+    agent: 1

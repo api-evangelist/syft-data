@@ -61,27 +61,10 @@ tools:
 deployment:
   mode: remote
   endpoint: https://app.syftdata.com/api/mcp
-  install: null
-  package: null
-  auth: oauth
   verified: probed
   probe: gated
-  checked: '2026-08-13'
-  source: >-
-    Live tools/list probe 2026-08-13 plus https://docs.syftdata.com/ai-agents/connect.
-    No stdio package is published — the only way to reach Syft over MCP is the
-    hosted HTTPS endpoint.
-  evidence:
-    method: tools/list
-    status: 401
-    body: '{"error":"invalid_token","error_description":"No authorization provided"}'
-    www_authenticate: >-
-      Bearer error="invalid_token", error_description="No authorization provided",
-      resource_metadata="https://app.syftdata.com/.well-known/oauth-protected-resource"
-    note: >-
-      Endpoint is live and speaks MCP; tool schemas require an authenticated OAuth
-      session, so the tool list above comes from the provider's published tool
-      table rather than from live introspection.
+  checked: '2026-08-12'
+  source: catalog MCP census
 oauth_metadata:
   authorization_server: well-known/syft-data-oauth-authorization-server.json
   protected_resource: well-known/syft-data-oauth-protected-resource.json
