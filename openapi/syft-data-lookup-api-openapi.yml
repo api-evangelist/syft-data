@@ -57,24 +57,14 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
+    LinkedInActivity:
       type: object
       properties:
-        error:
+        start_time:
           type: string
-          examples:
-          - Invalid input
-          - Unauthorized
-          - Not found
-    LookupResponse:
-      type: object
-      properties:
-        company:
-          $ref: '#/components/schemas/Company'
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
+          format: date-time
+        linkedin_impressions:
+          type: integer
     Company:
       type: object
       properties:
@@ -101,6 +91,41 @@ components:
           - medium
           - high
           - very_high
+    SiteActivity:
+      type: object
+      properties:
+        active_time:
+          type: integer
+          description: Seconds spent on site
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        pages_visited:
+          type: array
+          items:
+            type: string
+        signals:
+          type: array
+          items:
+            type: string
+        referrer:
+          type: string
+        intent:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - very_high
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
     Contact:
       type: object
       properties:
@@ -140,49 +165,24 @@ components:
           type: boolean
           default: false
           description: Include site_activity and linkedin_activity arrays on each contact.
-    LinkedInActivity:
+    Error:
       type: object
       properties:
-        start_time:
+        error:
           type: string
-          format: date-time
-        linkedin_impressions:
-          type: integer
-    SiteActivity:
+          examples:
+          - Invalid input
+          - Unauthorized
+          - Not found
+    LookupResponse:
       type: object
       properties:
-        active_time:
-          type: integer
-          description: Seconds spent on site
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-        pages_visited:
+        company:
+          $ref: '#/components/schemas/Company'
+        contacts:
           type: array
           items:
-            type: string
-        signals:
-          type: array
-          items:
-            type: string
-        referrer:
-          type: string
-        intent:
-          type: string
-          enum:
-          - low
-          - medium
-          - high
-          - very_high
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
+            $ref: '#/components/schemas/Contact'
   securitySchemes:
     bearerAuth:
       type: http

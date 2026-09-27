@@ -93,6 +93,16 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    ExportResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MotionRun'
+        nextCursor:
+          type: string
+          nullable: true
     MotionRun:
       type: object
       properties:
@@ -136,16 +146,6 @@ components:
           - Invalid input
           - Unauthorized
           - Not found
-    ExportResponse:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/MotionRun'
-        nextCursor:
-          type: string
-          nullable: true
   securitySchemes:
     bearerAuth:
       type: http
