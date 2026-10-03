@@ -57,40 +57,20 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    LinkedInActivity:
+    LookupRequest:
       type: object
+      description: One of email or domain is required. email takes precedence.
       properties:
-        start_time:
+        email:
           type: string
-          format: date-time
-        linkedin_impressions:
-          type: integer
-    Company:
-      type: object
-      properties:
+          description: Email address to look up.
         domain:
           type: string
-        name:
-          type: string
-        industry:
-          type: string
-        syft_sessions:
-          type: integer
-        syft_visitors:
-          type: integer
-        syft_first_seen:
-          type: string
-          format: date-time
-        syft_last_seen:
-          type: string
-          format: date-time
-        syft_purchase_intent:
-          type: string
-          enum:
-          - low
-          - medium
-          - high
-          - very_high
+          description: Company domain to look up (e.g. acme.com).
+        includeActivity:
+          type: boolean
+          default: false
+          description: Include site_activity and linkedin_activity arrays on each contact.
     SiteActivity:
       type: object
       properties:
@@ -126,6 +106,14 @@ components:
           type: string
         country:
           type: string
+    LinkedInActivity:
+      type: object
+      properties:
+        start_time:
+          type: string
+          format: date-time
+        linkedin_impressions:
+          type: integer
     Contact:
       type: object
       properties:
@@ -151,20 +139,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LinkedInActivity'
-    LookupRequest:
-      type: object
-      description: One of email or domain is required. email takes precedence.
-      properties:
-        email:
-          type: string
-          description: Email address to look up.
-        domain:
-          type: string
-          description: Company domain to look up (e.g. acme.com).
-        includeActivity:
-          type: boolean
-          default: false
-          description: Include site_activity and linkedin_activity arrays on each contact.
     Error:
       type: object
       properties:
@@ -174,6 +148,32 @@ components:
           - Invalid input
           - Unauthorized
           - Not found
+    Company:
+      type: object
+      properties:
+        domain:
+          type: string
+        name:
+          type: string
+        industry:
+          type: string
+        syft_sessions:
+          type: integer
+        syft_visitors:
+          type: integer
+        syft_first_seen:
+          type: string
+          format: date-time
+        syft_last_seen:
+          type: string
+          format: date-time
+        syft_purchase_intent:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - very_high
     LookupResponse:
       type: object
       properties:
