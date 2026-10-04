@@ -57,20 +57,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    LookupRequest:
-      type: object
-      description: One of email or domain is required. email takes precedence.
-      properties:
-        email:
-          type: string
-          description: Email address to look up.
-        domain:
-          type: string
-          description: Company domain to look up (e.g. acme.com).
-        includeActivity:
-          type: boolean
-          default: false
-          description: Include site_activity and linkedin_activity arrays on each contact.
     SiteActivity:
       type: object
       properties:
@@ -114,6 +100,41 @@ components:
           format: date-time
         linkedin_impressions:
           type: integer
+    LookupResponse:
+      type: object
+      properties:
+        company:
+          $ref: '#/components/schemas/Company'
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+    Company:
+      type: object
+      properties:
+        domain:
+          type: string
+        name:
+          type: string
+        industry:
+          type: string
+        syft_sessions:
+          type: integer
+        syft_visitors:
+          type: integer
+        syft_first_seen:
+          type: string
+          format: date-time
+        syft_last_seen:
+          type: string
+          format: date-time
+        syft_purchase_intent:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - very_high
     Contact:
       type: object
       properties:
@@ -148,41 +169,20 @@ components:
           - Invalid input
           - Unauthorized
           - Not found
-    Company:
+    LookupRequest:
       type: object
+      description: One of email or domain is required. email takes precedence.
       properties:
+        email:
+          type: string
+          description: Email address to look up.
         domain:
           type: string
-        name:
-          type: string
-        industry:
-          type: string
-        syft_sessions:
-          type: integer
-        syft_visitors:
-          type: integer
-        syft_first_seen:
-          type: string
-          format: date-time
-        syft_last_seen:
-          type: string
-          format: date-time
-        syft_purchase_intent:
-          type: string
-          enum:
-          - low
-          - medium
-          - high
-          - very_high
-    LookupResponse:
-      type: object
-      properties:
-        company:
-          $ref: '#/components/schemas/Company'
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
+          description: Company domain to look up (e.g. acme.com).
+        includeActivity:
+          type: boolean
+          default: false
+          description: Include site_activity and linkedin_activity arrays on each contact.
   securitySchemes:
     bearerAuth:
       type: http
