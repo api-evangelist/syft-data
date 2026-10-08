@@ -96,3 +96,28 @@ trial:
   note: >-
     No published free tier. The signup flow is advertised as "No credit card ·
     ~10 min setup"; the Agency tier includes a trial workspace for self-evaluation.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units: []
+  plans:
+  - name: Starter
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Pro
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods: []
+  - name: Agency
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
