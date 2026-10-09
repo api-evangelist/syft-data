@@ -71,3 +71,19 @@ oauth_metadata:
   dynamic_client_registration: true
 plan_gate: Pro plan required.
 crosswalk: mcp/syft-data-tool-crosswalk.yml
+rfc9728:
+  endpoint: https://app.syftdata.com/api/mcp
+  metadata_url: https://app.syftdata.com/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://app.syftdata.com/api/mcp
+    authorization_servers:
+    - https://app.syftdata.com
+    scopes_supported:
+    - openid
+    - profile
+    - email
+    - offline_access
