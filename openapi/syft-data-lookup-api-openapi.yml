@@ -57,41 +57,45 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    SiteActivity:
+    Contact:
       type: object
       properties:
-        active_time:
+        email:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        syft_sessions:
           type: integer
-          description: Seconds spent on site
-        start_time:
+        syft_first_seen:
           type: string
           format: date-time
-        end_time:
+        syft_last_seen:
           type: string
           format: date-time
-        pages_visited:
+        site_activity:
           type: array
           items:
-            type: string
-        signals:
+            $ref: '#/components/schemas/SiteActivity'
+        linkedin_activity:
           type: array
           items:
-            type: string
-        referrer:
+            $ref: '#/components/schemas/LinkedInActivity'
+    LookupRequest:
+      type: object
+      description: One of email or domain is required. email takes precedence.
+      properties:
+        email:
           type: string
-        intent:
+          description: Email address to look up.
+        domain:
           type: string
-          enum:
-          - low
-          - medium
-          - high
-          - very_high
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
+          description: Company domain to look up (e.g. acme.com).
+        includeActivity:
+          type: boolean
+          default: false
+          description: Include site_activity and linkedin_activity arrays on each contact.
     LinkedInActivity:
       type: object
       properties:
@@ -100,6 +104,15 @@ components:
           format: date-time
         linkedin_impressions:
           type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          examples:
+          - Invalid input
+          - Unauthorized
+          - Not found
     LookupResponse:
       type: object
       properties:
@@ -135,54 +148,41 @@ components:
           - medium
           - high
           - very_high
-    Contact:
+    SiteActivity:
       type: object
       properties:
-        email:
-          type: string
-        name:
-          type: string
-        title:
-          type: string
-        syft_sessions:
+        active_time:
           type: integer
-        syft_first_seen:
+          description: Seconds spent on site
+        start_time:
           type: string
           format: date-time
-        syft_last_seen:
+        end_time:
           type: string
           format: date-time
-        site_activity:
+        pages_visited:
           type: array
           items:
-            $ref: '#/components/schemas/SiteActivity'
-        linkedin_activity:
+            type: string
+        signals:
           type: array
           items:
-            $ref: '#/components/schemas/LinkedInActivity'
-    Error:
-      type: object
-      properties:
-        error:
+            type: string
+        referrer:
           type: string
-          examples:
-          - Invalid input
-          - Unauthorized
-          - Not found
-    LookupRequest:
-      type: object
-      description: One of email or domain is required. email takes precedence.
-      properties:
-        email:
+        intent:
           type: string
-          description: Email address to look up.
-        domain:
+          enum:
+          - low
+          - medium
+          - high
+          - very_high
+        city:
           type: string
-          description: Company domain to look up (e.g. acme.com).
-        includeActivity:
-          type: boolean
-          default: false
-          description: Include site_activity and linkedin_activity arrays on each contact.
+        state:
+          type: string
+        country:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http
