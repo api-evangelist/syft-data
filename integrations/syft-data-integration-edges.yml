@@ -16,9 +16,91 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Slack app
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@syftdata/cli
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@syftdata/cli'
+      version: 0.1.38-alpha.3
+      released: '2023-10-09'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/@syftdata/cli
+      repo_leg: domain:syftdata.com
+      publisher_leg: email:syftdata.com
+      matched_by: domain
+    - name: '@syftdata/client'
+      version: 0.1.38-alpha.3
+      released: '2023-10-09'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/@syftdata/client
+      repo_leg: domain:syftdata.com
+      publisher_leg: email:syftdata.com
+      matched_by: domain
+    - name: '@syftdata/codehandler'
+      version: 0.1.38-alpha.3
+      released: '2023-10-09'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/@syftdata/codehandler
+      repo_leg: domain:syftdata.com
+      publisher_leg: email:syftdata.com
+      matched_by: domain
+    - name: '@syftdata/common'
+      version: 0.1.38-alpha.3
+      released: '2023-10-09'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/@syftdata/common
+      repo_leg: domain:syftdata.com
+      publisher_leg: email:syftdata.com
+      matched_by: domain
+    - name: '@syftdata/next'
+      version: 0.1.38-alpha.36
+      released: '2024-02-24'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/@syftdata/next
+      repo_leg: domain:syftdata.com
+      publisher_leg: email:syftdata.com
+      matched_by: domain
+    - name: '@syftdata/test'
+      version: 0.1.30
+      released: '2023-08-25'
+      released_field: modified
+      lapsed: true
+      page: https://www.npmjs.com/package/@syftdata/test
+      repo_leg: domain:syftdata.com
+      publisher_leg: email:syftdata.com
+      matched_by: domain
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 generated: '2026-10-18'
 method: searched
 source:
 - slack/integrations/slack-integration-edges.yml
 checked:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - slack/integrations/slack-integration-edges.yml
