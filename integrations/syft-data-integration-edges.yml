@@ -1,21 +1,4 @@
 edges:
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A064N3XJEE9-syft
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - Syft
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
 - partner_name: npm registry
   partner: npm
   partner_match: register
@@ -190,6 +173,40 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A064N3XJEE9-syft
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Syft
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/syft
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - Syft
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: LEAD_SCORING_ROUTING
 generated: '2026-10-18'
 method: searched
 source:
@@ -214,3 +231,4 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- hubspot/integrations/hubspot-integration-edges.yml
