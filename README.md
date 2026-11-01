@@ -64,6 +64,146 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Syft Data is a company surfaced as a portfolio company of bloomberg-beta and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Syft Data, Inc. is a B2B lead-intelligence platform that identifies and qualifies high-intent prospects from inbound website traffic and LinkedIn engagement. Its tracking pixel reveals anonymous visitors, enriches contacts, scores them against an Ideal Customer Profile, and triggers multi-channel outreach ("motions") into CRM, email, LinkedIn, and ad platforms. For developers Syft ships a schema-driven analytics SDK and CLI (npm @syftdata/*), a server-side Lookup and Export REST API secured with sk_live_ keys, outbound webhooks, and an official hosted MCP server so AI agents can query visitor data and build automations from chat.
 
-Backed by: bloomberg-beta — https://www.syftdata.com/
+**Areas:** Company · Lead Intelligence · Intent Data · Website Visitor Identification · Sales Intelligence · Go-To-Market · Analytics · MCP
+
+## Syft Data on APIs.io
+
+Everything profiled for Syft Data is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/syft-data/](https://apis.io/providers/syft-data/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Syft Data Export API](https://apis.io/apis/syft-data/syft-data-export-api/) — The Export API from Syft Data — 1 operation(s) for export.
+- [Syft Data Lookup API](https://apis.io/apis/syft-data/syft-data-lookup-api/) — The Lookup API from Syft Data — 1 operation(s) for lookup.
+- [Syft Data Event Collection API](https://apis.io/apis/syft-data/syft-data-events-api/) — The ingest endpoint the Syft browser tracking tag, SDK and server-side callers post behavioural and custom events to. Documented only inside the developer…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Syft Data Webhooks](https://apis.io/asyncapis/syft-data/syft-data-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Syft MCP Server](https://apis.io/servers/syft-data/syft-mcp-server/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Syft Data Event Collection API](https://apis.io/collections/syft-data/open-syft-data-events-api/)
+- [Syft Data Lookup & Export API](https://apis.io/collections/syft-data/open-syft-data-export-api/)
+- [Syft Data & Export Lookup API](https://apis.io/collections/syft-data/open-syft-data-lookup-api/)
+
+#### Overlays (3)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Syft Data Export Api Overlay](https://apis.io/overlays/syft-data/syft-data-export-api-overlay/)
+- [Syft Data Lookup Api Overlay](https://apis.io/overlays/syft-data/syft-data-lookup-api-overlay/)
+- [Syft Data Openapi Overlay](https://apis.io/overlays/syft-data/syft-data-openapi-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Syft Data Authentication](https://apis.io/security/syft-data/syft-data-authentication/)
+- [Syft Data Domain Security](https://apis.io/security/syft-data/syft-data-domain-security/)
+- [Syft Data Trust Center](https://apis.io/security/syft-data/syft-data-trust-center/)
+- [Syft Data Vulnerability Disclosure](https://apis.io/security/syft-data/syft-data-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Syft Data Scopes](https://apis.io/scopes/syft-data/syft-data-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Syft Data Plans Pricing](https://apis.io/plans/syft-data/syft-data-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Syft Data Rate Limits](https://apis.io/rate-limits/syft-data/syft-data-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.syftdata.com/)
+- [Documentation](https://docs.syftdata.com/)
+- [Getting started](https://docs.syftdata.com/tutorial-basics/installation)
+- [API reference](https://docs.syftdata.com/implementation/lookup-api)
+- [Pricing](https://www.syftdata.com/pricing)
+- [Sign up](https://app.syftdata.com/auth/syft-signup)
+- [Support](https://www.syftdata.com/support)
+- [Blog](https://blog.syftdata.com/)
+- [Terms of service](https://www.syftdata.com/terms)
+- [Privacy policy](https://www.syftdata.com/privacy.html)
+- [GitHub](https://github.com/syftdata)
+
+## API Evangelist rating
+
+**Kin Score 62.1** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 64.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 64.9 |
+| Access clarity | 92.1 |
+
+**Agent readiness 55.4** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/syft-data/](https://apis.io/providers/syft-data/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Syft Data: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/syft-data/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
